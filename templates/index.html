@@ -1,0 +1,2290 @@
+<!doctype html>
+<html lang="en">
+
+    <head>{% load static %}
+        {% load total_tags %}
+
+        {% load time_tags %}
+
+
+        
+        <meta charset="utf-8" >
+        <title>FuelTM  </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" >
+        <meta content="Themesbrand" name="author" >
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'assets/images/logo/logo3.png' %}">
+
+        <!-- Bootstrap Css -->
+        <link href="{% static 'assets/css/bootstrap.min.css' %}"  rel="stylesheet" type="text/css" >
+        <!-- Icons Css -->
+        <link href="{% static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" >
+        <!-- App Css-->
+        <link href="{% static 'assets/css/app.min.css' %}"  rel="stylesheet" type="text/css" >
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+        
+
+        <link href="{% static 'assets/css/custom.css' %}"  rel="stylesheet" type="text/css" >
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- SweetAlert2 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+
+      
+
+        
+    
+    </head>
+    
+    <style>
+        
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+/* .active, .dot:hover {
+  background-color: #717171;
+} */
+
+.numbertext {
+  color: #ffffff;
+  font-size: 13px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  background-color: rgb(29, 202, 233);
+  border-radius: 6px;
+}
+
+
+    </style>
+   
+    
+
+  
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+   
+    
+    
+   
+    <body data-sidebar="dark" data-layout-mode="light">
+        
+
+    <!-- <body data-layout="horizontal" data-topbar="dark"> -->
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+
+            
+            <header id="page-topbar">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box">
+                            <!-- <a href="Home.html" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="{% static 'assets/images/logo.svg' %}" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="{% static 'assets/images/logo-dark.png' %}" alt="" height="17">
+                                </span>
+                            </a> -->
+
+                            <a href="{% url 'Home' %}" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="{% static 'assets/images/logo/logo2.png' %}" alt="" height="26">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="{% static 'assets/images/logo/FuelTM_logo.png' %}" alt="" height="19">
+                                </span>
+                            </a>
+                        </div>
+
+                        <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+
+                     
+                    </div>
+
+                    <div class="d-flex">
+
+                        <div class="dropdown d-inline-block d-lg-none ms-2">
+                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-magnify"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                                aria-labelledby="page-header-search-dropdown">
+        
+                                <form class="p-3">
+                                    <div class="form-group m-0">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        
+
+                        
+
+                        <div class="dropdown d-none d-lg-inline-block ms-1">
+                            <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
+                                <i class="bx bx-fullscreen"></i>
+                            </button>
+                        </div>
+
+                        
+                        <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="modal" data-bs-target=".bs-example-modal-xl"
+                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bx bx-bell bx-tada"></i>
+                            {% if count != 0  %}
+                            <span class="badge bg-danger rounded-pill">
+                                
+                                {{count}}
+                                {% endif %}
+                            </span>
+                        </button>
+                        
+
+                       
+                        
+
+                        
+
+                        
+
+
+
+
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="{% static 'assets/images/users/avatar-1.jpg' %}"
+                                    alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{user}}</span>
+                                <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <!-- <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a> -->
+         
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" href="{% url 'Logout' %}"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
+                            </div>
+                        </div>
+
+                       
+
+                    </div>
+                </div>
+            </header>
+
+      
+           
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
+
+                <div data-simplebar class="h-100">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+                            <!-- <li class="menu-title" key="t-menu">Menu</li> -->
+
+                            
+                            <li>
+                                <a href="{% url 'Home' %}" class="waves-effect">
+                                    <i class="fa fa-home" ></i>
+
+                                    
+
+                                    <span key="t-file-manager">Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                {% if Generator_Access == "0" %}
+
+                                <a onclick="showToast3()" style="cursor: pointer;">
+                                    <i class="fa fa-plus-circle" ></i>
+                                    
+
+                                    <span key="t-file-manager">Add Application</span>
+                                </a>
+                                {% else %}
+                                
+                                <a href="{% url 'Add_Application' %}" class="waves-effect">
+                                    <i class="fa fa-plus-circle" ></i>
+                                    
+
+                                    <span key="t-file-manager">Add Application</span>
+                                </a>
+
+                                {% endif %}
+                            </li>
+
+                            <li>
+                                {% if type == "2" %}
+                                       
+
+                                <a  onclick="showToast()" style="cursor: pointer;" >
+                                    <i class="fa fa-user" ></i>
+
+                                    <span key="t-file-manager">Users</span>
+                                
+                                </a>
+
+                                {% else %}
+                                <a href="{% url 'Users' %}" class="waves-effect">
+                                    <i class="fa fa-user" ></i>
+
+                                    <span key="t-file-manager">Users</span>
+                                </a>
+                                {% endif %}
+
+
+                                
+                            </li>
+
+                             <!-- <li>
+                                <a href="{% url 'Hotspot' %}" class="waves-effect">
+                                    <i class="mdi mdi-monitor" ></i>
+
+                                    <span key="t-file-manager">Hotspot</span>
+                                </a>
+                            </li> -->
+                            <li>
+
+                                {% if type == "2" %}
+                                       
+
+                                <a  onclick="showToast7()" style="cursor: pointer;" >
+                                    <i class="fa fa-bell-o" ></i>
+
+                                    <span key="t-file-manager">Notification Delay</span>
+                                
+                                </a>
+
+                                {% else %}
+                                {% if generator == 0 %}
+                                            <a onclick="showToast8()" class="waves-effect">
+                                                <i class="fa fa-bell-o" ></i>
+
+                                    <span key="t-file-manager">Notification Delay</span>
+                                </a>
+                                {%  else %}
+
+                                <a href="{% url 'Notification_Delay' %}" class="waves-effect">
+                                    <i class="fa fa-bell-o" ></i>
+
+                                    <span key="t-file-manager">Notification Delay</span>
+                                </a>
+                                {% endif %}
+
+
+                                {% endif %}
+
+
+
+
+                                
+
+
+
+                            </li>
+                            <li>
+
+                                {% if Service_Access == "0" %}
+
+                                                <a onclick="showToast2()" style="cursor: pointer;" class="waves-effect">
+                                                   
+                                                   
+                                                        <i class="mdi mdi-tools" ></i>
+                                                       
+                    
+                                                        <span key="t-file-manager"> Service</span>
+                                                </a>
+                                               
+                                {% else %}
+
+                                    {% if generator == 0 %}
+                                            <a onclick="showToast8()" class="waves-effect">
+                                                        
+                                                <i class="mdi mdi-tools" ></i>
+                                            
+            
+                                                <span key="t-file-manager"> Service</span>
+                                            </a>
+
+
+                                    {% else  %}
+                                                 
+                                                 
+                                                <a href="{% url 'Service' %}" class="waves-effect">
+                                                   
+                                                        <i class="mdi mdi-tools" ></i>
+                                                       
+                    
+                                                        <span key="t-file-manager"> Service</span>
+                                                </a>
+                                    {% endif %}           
+                                {% endif %}
+
+                                
+                            </li>
+                            <li>
+                             {% if Purchase_Access == "0" %}
+
+                                            <a onclick="showToast2()" style="cursor: pointer;" class="waves-effect">
+
+                                                
+                                                    <i class="fa fa-credit-card" ></i>
+
+                                                    <span key="t-file-manager">Purchase</span><!--end card-->
+                                            </a> 
+                            {% else %}
+                                {% if generator == 0 %}
+                                    <a onclick="showToast8()" class="waves-effect">
+                                                
+                                        <i class="fa fa-credit-card" ></i>
+
+                                        <span key="t-file-manager">Purchase</span><!--end card-->
+                                    </a>
+
+
+                                {% else  %}
+
+                                                <a href="{% url 'Purchase' %}" class="waves-effect">
+                                                    <i class="fa fa-credit-card" ></i>
+
+                                                    <span key="t-file-manager">Purchase</span><!--end card-->
+                                            </a>
+                                {% endif %}          
+                            {% endif %}
+
+
+
+
+
+                                
+                            </li>
+                            <li>
+                                <a onclick="showToast5()" class="waves-effect" style="cursor: pointer;">
+                                    <i class="mdi mdi-security" ></i>
+
+                                    <span key="t-file-manager">Warranty Section</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="showToast6()" class="waves-effect" style="cursor: pointer;">
+                                    <i class="mdi mdi-toolbox" ></i>
+
+                                    <span key="t-file-manager">AMC Section</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'Logout' %}" class="waves-effect">
+                                    <i class="fa fa-sign-out" ></i>
+
+                                    <span key="t-file-manager">Logout</span>
+                                </a>
+                            </li>
+
+                            
+
+
+                        </ul>
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+   
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        
+                        <!-- <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 class="mb-sm-0 font-size-18">Dashboard</h4>
+
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
+                                            <li class="breadcrumb-item active">Dashboard</li>
+                                        </ol>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- end page title -->
+
+                       
+                        
+                        <div class="row">
+                            
+                            <div class="col-xl-12">
+                                
+                                <!-- end row -->
+
+                                <!-- <div class="card " >
+                                    <div class="card-body " > -->
+
+                                        
+                                       
+                                        <div class="form-group ">
+                                            <select class="form-select " id="selectgen" >
+                                                {% if generator == 0 %}
+                                                <option >Select Generator</option>
+                                                {% endif %}
+                                                {% for i in beanGenerator %}
+
+                                                {% if type == '2' %}
+
+                                                {% for j in Gen %}
+                                                {% if j == i.genId  %}
+                                                <option value="{{i.genId}}"  {% if generator == i.genId %}selected{% endif %}  >{{i.name}}</option>
+                                                {% endif %}
+                                                {% endfor %}
+                                                {% else %}
+                               
+                                                <option value="{{i.genId}}"  {% if generator == i.genId %}selected{% endif %}  >{{i.name}}</option>
+
+                                                {% endif %}
+                                                {% endfor %}
+
+                                            </select>
+                                            
+                                        </div>
+                                       
+                                       
+                                    <!-- </div>
+                                </div> -->
+                            </div>
+                        </div>
+
+                       
+                        <!-- end row -->
+
+                        <form action="{% url 'Home' %}" method="POST" id="myform">{% csrf_token %}
+                            <input name="genId" id="generator" hidden >
+                        
+                    </form>
+
+    {% if generator == 0 %}            
+            
+    <div id="warning2"  >
+
+        <div class="row" style="margin-top: 30px;">
+                            
+            <div class="col-xl-12" >
+                
+                <!-- end row -->
+
+                <div class="card">
+                    <div class="card-body" >
+
+
+                        <div class="slideshow-container">
+
+                            <div class="mySlides ">
+                                <div class="numbertext" >Total time run month wise</div>
+                                <div id="chart" style="margin-top: 15px;">
+                                </div>
+                              
+                             
+                            </div>
+
+                            <div class="mySlides ">
+                                <div class="numbertext">Total time run day wise</div>
+                                <div id="chart2" style="margin-top: 15px;">
+                                </div>
+                              
+                             
+                            </div>
+
+                            <div class="mySlides ">
+                                <div class="numbertext">Total fuel used month wise</div>
+                                <div id="chart3" style="margin-top: 15px;">
+                                </div>
+                              
+                             
+                            </div>
+
+                            <div class="mySlides ">
+                                <div class="numbertext">Total fuel used day wise</div>
+                                <div id="chart4" style="margin-top: 15px;">
+                                </div>
+                              
+                             
+                            </div>
+                            
+                            
+                            
+                          
+                            
+                            <a class="prev" onclick="plusSlides(-1)">❮</a>
+                            <a class="next" onclick="plusSlides(1)">❯</a>
+                            
+                            </div>
+                            <br>
+
+                            <div style="text-align:center">
+                            <span class="dot" onclick="currentSlide(1)"></span> 
+                            <span class="dot" onclick="currentSlide(2)"></span> 
+                            <span class="dot" onclick="currentSlide(3)"></span> 
+                            <span class="dot" onclick="currentSlide(4)"></span> 
+                            </div>
+                    
+                        
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        <div style="opacity: .7;">
+            <div class="col-xl-12 " style="margin-top: 10px;">
+                <div class="card" style="background-color: rgb(124, 125, 126);">
+                    <div class="card-body">
+
+                        
+
+                        <div class="row">
+                            
+                            <div class="col-xl-4 col-lg-6" >
+                                <div class="card hcard" >
+                                    <div  class="card-body" >
+                                        
+                                        <div class="ttt" >
+                                        <div  class="col-xl-4 box-one "  >
+
+                                            
+                                               <input id="vlm" class="knob" data-width="200" data-height="200" data-linecap=round 
+                                                                                    data-fgColor="#F5CD06" value="{{volume}}" data-skin="tron" data-angleOffset="180"
+                                                                                    data-readOnly=true data-thickness=".1" hidden >
+                                                                                    <div class="circle_chart_1 " style="margin-top: -140px;">{{volume}}L<br>
+                                                                                        <span>Total capacity</span><br>
+                                                                                        {{totalFuel}}L
+                                                                                </div>
+                                              
+    
+                                                                                
+                                            </div>
+                                         
+                                                                
+                                                                           
+                                                                           
+                                                                   
+                                                                            
+                                        </div>
+                                    </div>
+                                       
+                                    </div>
+                                </div>
+                            
+
+                            <div class="col-xl-4 col-lg-6 " >
+                                <div class="card hcard" >
+                                    <div class="card-body">
+                                        
+                                        
+                                        <div class="box-one" >
+                                           
+                                            
+                                           <input class="knob" data-width="200" data-height="200" data-linecap=round 
+                                                                                data-fgColor="#F5CD06" value="{{Approx_hour}}" data-skin="tron" data-angleOffset="180"
+                                                                                data-readOnly=true data-thickness=".1" hidden >
+                                                                            <div class="circle_chart_1 " style="margin-top: -140px;">Approx<br>
+                                                                                <span>{{Approx_hour}} <br>
+                                                                                Hours</span><br>
+                                                                                of Running 0% <br>
+                                                                                Load
+                                                                        </div>
+                                           
+
+                                                                            
+                                        </div>
+                                      
+                                       
+                                    </div>
+                                </div><!--end card-->
+                            </div>
+
+                           
+
+                            <div class="col-xl-4">
+                                <div class="card hcard" >
+                                    <div class="card-body">
+                                        
+                                        
+                                        <div class=" box-one" >
+                                           
+                                            <p>Last manul fill</p>
+                                            <div class=" Detail "  style="padding-top: 30px;">
+           
+                                                <div class="hcard3 "><span class="date"><b>-</b></span><label>_<br><br>_</label></div>
+                                               
+                                                <div class="hcard4 "><label>{{fillManualArray|lasts}} L</label></div>
+                                                <div class="hcard4 "><label> ₹ {{fillManualArray|amt}}</label></div>
+                                            
+                                                                                
+                                            </div>
+                                                                            
+                                        </div>
+                                      
+                                       
+                                    </div>
+                                </div><!--end card-->
+                            </div>
+
+                      
+                           
+
+                            
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div><!--end card-->
+            </div>
+            <!-- <div id="ch"></div> -->
+           
+                            <div class="col-xl-12">
+                                <div class="card" style="background-color: rgb(151, 225, 248);">
+                                    <div class="card-body">
+
+                                        <!-- <div class="card hcard">
+                                            <div class="card-body">
+                                               
+                                                <div id="carouselExampleInterval1" class="carousel slide" data-bs-touch="true" data-bs-ride="carousel">
+                                                    <div class="carousel-inner">
+        
+                                                        <div class="row">
+                                                            
+                                                            <div class="col-11">
+        
+                                                              
+                                            
+        
+                                                
+                                           
+        
+                                            <div class="carousel-item active" data-bs-interval="10000" style="text-align: left; padding-left: 5px; ">
+                                                            
+                                               fuel cost of last running hour is:0
+                                            </div>
+                                            
+        
+                                            
+        
+                                            
+                                            
+                                            
+                                                    </div>
+                                                </div>
+                                                <div class="col-1">
+                                                    
+                                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval1" data-bs-slide="next">
+                                                        <span class="fa fa-ellipsis-h" style="font-size:25px;" aria-hidden="true" ></span>
+                                                        <span class="visually-hidden">Next</span>
+                                                    </button>
+                                                </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+
+                                        <div class="row">
+                                            <div class=" col-xl-4 col-sm-4 col-xs-4 col-lg-4  ">
+
+                                                
+
+
+                                                <a   >
+                                                <div class="card hcard">
+                                                    <div class="card-body">
+                                                        
+                                                        <div >
+                                                            <img src="{% static 'assets/images/icons/iot.png' %}" width="80px" height="80px">
+                                                        </div>
+                                                        <p>Devices </p>
+                                                        
+                                                       
+                                                    </div>
+                                                </div><!--end card-->
+                                            </a>
+                                            
+                                            </div>
+
+
+           
+
+
+                                            <div class=" col-xl-4 col-sm-4 col-xs-4 col-lg-4  ">
+                                                
+                                                <a >
+                                                <div class="card hcard" >
+                                                    <div class="card-body">
+                                                        
+                                                        <div>
+                                                            <img src="{% static 'assets/images/icons/power.png' %}" width="60px" height="60px">
+                                                        </div>
+                                                        <p>Engine <br>Parameters</p>
+
+
+                                                        
+                                                       
+                                                    </div>
+                                                </div><!--end card-->
+                                            </a>
+
+                                            
+                                            </div>
+
+                                            <div class=" col-xl-4 col-sm-4 col-xs-4 col-lg-4 ">
+                                                <a >
+                                                <div class="card hcard">
+                                                    <div class="card-body">
+                                                       
+                                                        <div>
+                                                            <img src="{% static 'assets/images/icons/report1.png' %}" width="80px" height="80px">
+                                                        </div>
+                                                        <p>Reports</p> 
+                                                       
+                                                    </div>
+                                                </div><!--end card-->
+                                            </a>
+                                            </div>
+
+
+                                            
+
+                                            <div class=" col-xl-4 col-sm-4 col-xs-4 col-lg-4  ">
+                                                <a >
+                                                <div class="card hcard">
+                                                    <div class="card-body">
+                                                        <div>
+                                                            <img src="{% static 'assets/images/icons/fuel1.png' %}" width="70px" height="70px">
+                                                        </div>
+                                                        <p>Fuel</p>
+                                                        
+                                                    </div>
+                                                </div><!--end card-->
+                                            </a>
+                                            </div>
+
+                                            
+
+                                            <!-- <div class=" col-xl-4 col-sm-4 col-xs-4 col-lg-4  ">
+                                                <a >
+                                                <div class="card hcard">
+
+                                                    <div class="card-body">
+                                                        <div>
+                                                            <img src="{% static 'assets/images/icons/card.png' %}" width="70px" height="70px">
+                                                        </div>
+                                                        <p>Purchase</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            </div>
+
+                                            <div class=" col-xl-4 col-sm-4 col-xs-4 col-lg-4 ">
+                                                <a >
+                                                <div class="card hcard">
+                                                   
+                                                    <div class="card-body">
+                                                      
+                                                        <div>
+                                                            <img src="{% static 'assets/images/icons/tool.png' %}" width="70px" height="70px">
+                                                        </div>
+                                                        <p>Services</p>
+                                                    </div>
+                                                </div>
+                                                </a>
+                                            </div> -->
+
+                                            <div class=" col-xl-8 col-sm-8 col-xs-8 col-lg-8  " >
+
+                                               
+
+                                                <a  style="cursor: pointer;">
+    
+                                                    <div class="card hcard" style="background-color: #595a05;">
+    
+                                                        <div class="card-body">
+                                                            <div>
+                                                                <img src="{% static 'assets/images/icons/store-64.png' %}" width="60px" height="60px">
+                                                            </div>
+                                                            <p>FuelTM Store</p>
+                                                        </div>
+                                                    </div>
+                                                </a> 
+                                                
+                                                </div>
+
+                                                
+                                            <div class="col-xl-12">
+                                                <a >
+                                                <div class="card hcard">
+                                                    <div class="card-body">
+                                                       
+                                                        <h5>Edit Generator Details</h5>
+                                                    </div>
+                                                </div><!--end card-->
+                                            </a>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                </div><!--end card-->
+                            </div>
+                           
+    </div>
+
+    </div>
+                    
+    {% else %}        
+            
+    <div>
+
+        <div class="row" style="margin-top: 30px;">
+                            
+            <div class="col-xl-12" >
+                
+                <!-- end row -->
+
+                <div class="card">
+                    <div class="card-body" >
+
+
+                        <div class="slideshow-container">
+
+                            <div class="mySlides ">
+                                <div class="numbertext" >Total time run month wise</div>
+                                <div id="chart" style="margin-top: 15px;">
+                                </div>
+                              
+                             
+                            </div>
+
+                            <div class="mySlides ">
+                                <div class="numbertext">Total time run day wise</div>
+                                <div id="chart2" style="margin-top: 15px;">
+                                </div>
+                              
+                             
+                            </div>
+
+                            <div class="mySlides ">
+                                <div class="numbertext">Total fuel used month wise</div>
+                                <div id="chart3" style="margin-top: 15px;">
+                                </div>
+                              
+                             
+                            </div>
+
+                            <div class="mySlides ">
+                                <div class="numbertext">Total fuel used day wise</div>
+                                <div id="chart4" style="margin-top: 15px;">
+                                </div>
+                              
+                             
+                            </div>
+                            
+                            
+                            
+                          
+                            
+                            <a class="prev" onclick="plusSlides(-1)">❮</a>
+                            <a class="next" onclick="plusSlides(1)">❯</a>
+                            
+                            </div>
+                            <br>
+
+                            <div style="text-align:center">
+                            <span class="dot" onclick="currentSlide(1)"></span> 
+                            <span class="dot" onclick="currentSlide(2)"></span> 
+                            <span class="dot" onclick="currentSlide(3)"></span> 
+                            <span class="dot" onclick="currentSlide(4)"></span> 
+                            </div>
+                    
+                        
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+            <div class="col-xl-12 " style="margin-top: 10px;">
+                <div class="card" style="background-color: rgb(124, 125, 126);">
+                    <div class="card-body">
+
+                        
+
+                        <div class="row">
+
+                            
+                            
+                            <div class="col-xl-4 col-lg-6" >
+                                <div class="card hcard" >
+                                    <div  class="card-body" >
+                                        
+                                        <div class="ttt" >
+                                        <div  class="col-xl-4 box-one "  >
+
+                                            
+                                               <input id="vlm" class="knob" data-width="200" data-height="200" data-linecap=round 
+                                                                                    data-fgColor="#F5CD06" value="{{volume}}" data-skin="tron" data-angleOffset="180"
+                                                                                    data-readOnly=true data-thickness=".1" hidden >
+                                                                                    <div class="circle_chart_1 " style="margin-top: -140px;">{{volume}}L<br>
+                                                                                        <span>Total capacity</span><br>
+                                                                                        {{totalFuel}}L
+                                                                                </div>
+                                              
+    
+                                                                                
+                                            </div>
+                                         
+                                                                
+                                                                           
+                                                                           
+                                                                   
+                                                                            
+                                        </div>
+                                    </div>
+                                       
+                                    </div>
+                                </div>
+                            
+
+                            <div class="col-xl-4 col-lg-6 " >
+                                <div class="card hcard" >
+                                    <div class="card-body">
+
+                                        <div id="carouselExampleInterval" class="carousel slide" data-bs-touch="true" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+
+                                                <div class="row">
+                                                    
+                                                    <div class="col-11">
+
+                                                      
+                                    
+
+                                                <div class="carousel-item active" data-bs-interval="5000" >
+
+                                                    
+                                                    
+                                                    <div class="box-one" >
+
+                                            
+                                           
+                                            
+                                                        <input class="knob" data-width="200" data-height="200" data-linecap=round 
+                                                                                             data-fgColor="#F5CD06" value="{{Approx_hour0}}" data-skin="tron" data-angleOffset="180"
+                                                                                             data-readOnly=true data-thickness=".1" hidden >
+                                                                                         <div class="circle_chart_1 " style="margin-top: -140px;">Approx<br>
+                                                                                             <span>{{Approx_hour0|rou}} <br>
+                                                                                             Hours</span><br>
+                                                                                             of Running 0% <br>Load
+                                                                                     </div>
+                                                        
+             
+                                                                                         
+                                                     </div>
+                                                </div>
+                                                <div class="carousel-item" data-bs-interval="5000" >
+                                                    <div class="box-one" >
+
+                                            
+                                           
+                                            
+                                                        <input class="knob" data-width="200" data-height="200" data-linecap=round 
+                                                                                             data-fgColor="#F5CD06" value="{{Approx_hour25}}" data-skin="tron" data-angleOffset="180"
+                                                                                             data-readOnly=true data-thickness=".1" hidden >
+                                                                                         <div class="circle_chart_1 " style="margin-top: -140px;">Approx<br>
+                                                                                             <span>{{Approx_hour25|rou}} <br>
+                                                                                             Hours</span><br>
+                                                                                             of Running 25% <br>Load
+                                                                                     </div>
+                                                        
+             
+                                                                                         
+                                                     </div>
+                                                </div>
+
+                                                <div class="carousel-item" data-bs-interval="5000" >
+                                                    <div class="box-one" >
+
+                                            
+                                           
+                                            
+                                                        <input class="knob" data-width="200" data-height="200" data-linecap=round 
+                                                                                             data-fgColor="#F5CD06" value="{{Approx_hour50}}" data-skin="tron" data-angleOffset="180"
+                                                                                             data-readOnly=true data-thickness=".1" hidden >
+                                                                                         <div class="circle_chart_1 " style="margin-top: -140px;">Approx<br>
+                                                                                             <span>{{Approx_hour50|rou}} <br>
+                                                                                             Hours</span><br>
+                                                                                             of Running 50% <br>Load
+                                                                                     </div>
+                                                        
+             
+                                                                                         
+                                                     </div>
+                                                </div>
+
+                                                <div class="carousel-item" data-bs-interval="5000" >
+                                                    <div class="box-one" >
+
+                                            
+                                           
+                                            
+                                                        <input class="knob" data-width="200" data-height="200" data-linecap=round 
+                                                                                             data-fgColor="#F5CD06" value="{{Approx_hour75}}" data-skin="tron" data-angleOffset="180"
+                                                                                             data-readOnly=true data-thickness=".1" hidden >
+                                                                                         <div class="circle_chart_1 " style="margin-top: -140px;">Approx<br>
+                                                                                             <span>{{Approx_hour75|rou}} <br>
+                                                                                             Hours</span><br>
+                                                                                             of Running 75% <br>Load
+                                                                                     </div>
+                                                        
+             
+                                                                                         
+                                                     </div>
+                                                </div>
+
+                                                <div class="carousel-item" data-bs-interval="5000" >
+                                                    <div class="box-one" >
+
+                                            
+                                           
+                                            
+                                                        <input class="knob" data-width="200" data-height="200" data-linecap=round 
+                                                                                             data-fgColor="#F5CD06" value="{{Approx_hour100}}" data-skin="tron" data-angleOffset="180"
+                                                                                             data-readOnly=true data-thickness=".1" hidden >
+                                                                                         <div class="circle_chart_1 " style="margin-top: -140px;">Approx<br>
+                                                                                             <span>{{Approx_hour100|rou}} <br>
+                                                                                             Hours</span><br>
+                                                                                             of Running 100% <br>Load
+                                                                                     </div>
+                                                        
+             
+                                                                                         
+                                                     </div>
+                                                </div>
+                                                
+                                  
+
+                                    
+                                    
+                                    
+                                            </div>
+                                        </div>
+                                        <div class="col-1">
+                                            
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                                                <span class="fa fa-caret-right" style="font-size:25px;" aria-hidden="true" ></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        
+                                        
+                                        <!-- <div class="box-one" >
+
+                                            
+                                           
+                                            
+                                           <input class="knob" data-width="200" data-height="200" data-linecap=round 
+                                                                                data-fgColor="#F5CD06" value="" data-skin="tron" data-angleOffset="180"
+                                                                                data-readOnly=true data-thickness=".1" hidden >
+                                                                            <div class="circle_chart_1 " style="margin-top: -140px;">Approx<br>
+                                                                                <span> <br>
+                                                                                Hours</span><br>
+                                                                                of Running
+                                                                        </div>
+                                           
+
+                                                                            
+                                        </div> -->
+                                      
+                                       
+                                    </div>
+                                </div><!--end card-->
+                            </div>
+
+                           
+
+                            <div class="col-xl-4">
+                                <div class="card hcard" >
+                                    <div class="card-body">
+                                        
+                                        
+                                        <div class=" box-one" >
+                                           
+                                            <p>Last manul fill</p>
+                                            <div class=" Detail " style="padding-top: 30px;" >
+
+                                                {% if fill_time != ""  %}
+
+                                                
+           
+                                                <div class="hcard3 "><span class="date"><b>{{fill_time|fromunix|date:"j" }}</b>
+                                                </span><label>{{fill_time|fromunix|date:"F" }}<br>
+                                                    <br>{{fill_time|fromunix|date:"Y"  }} {{fill_time|fromunix|date:" g:i A"  }}</label></div>
+                                                <!-- <div class="hcard4 "><label >{{fill_time|fromunix|date:" g:i A"  }}</label></div> -->
+                                                {% else %}
+                                                <div class="hcard3 "><span class="date"><b>-</b></span><label>_<br><br>_</label></div>
+                                                
+                                                {% endif %}
+                                                <div class="hcard4 "><label>{{fillManualArray|lasts}} L</label></div>
+                                                <div class="hcard4 "><label> ₹ {{fillManualArray|amt}}</label></div>
+                                                
+                                            
+                                                                                
+                                            </div>
+                                                                            
+                                        </div>
+                                      
+                                       
+                                    </div>
+                                </div><!--end card-->
+                            </div>
+
+                      
+                           
+
+                            
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div><!--end card-->
+            </div>
+            <!-- <div id="ch"></div> -->
+           
+        
+    
+             <!-- edit device Modal -->
+             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content" style="background:none; border: none;">
+                        
+                        <div class="modal-body">
+                            <div style="background-color:  rgb(74, 75, 75); border-radius: 20px; height: 60px;">
+                            <p class="d-flex justify-content-center" style="color: rgb(255, 255, 255);  padding: 18px; font-size: 16px;"> Do you want to edit device details?</p>
+                        </div>
+                        </div>
+                        <div class="d-flex justify-content-center" style="  width: 100%;">
+                            
+                            
+                            <a href="{% url 'Edit_Device' %}" class="btn btn-info " style="border-radius: 15px; font-size: 16px; width: 44%; margin-right: 5px; " >Yes</a>
+                            <button type="button" class="btn btn-info " style="border-radius: 15px; font-size: 16px; width: 44%; margin-left: 5px; " data-bs-dismiss="modal">No</button>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+                            <div class="col-xl-12">
+                                <div class="card" style="background-color: rgb(151, 225, 248);">
+
+                                    <div class="card-body">
+
+
+                                {% if fetch_slider_responseCode == 1 %}
+
+                                        <div class="card hcard">
+                                    <div class="card-body">
+                                       
+                                        <div id="carouselExampleInterval3" class="carousel slide" data-bs-touch="true" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+
+                                                <div class="row">
+                                                    
+                                                    <div class="col-11">
+
+                                                        
+                                   
+
+                                        {% for i in loadslider %}
+                                        
+                                                    <div class="carousel-item active" data-bs-interval="10000" style="text-align: left; padding-left: 5px; ">
+                                                        
+                                                        {{i.fuelcosthourstring}}
+                                                    </div>
+                                                    <div class="carousel-item " data-bs-interval="10000" style="text-align: left; padding-left: 5px; ">
+                                                        
+                                                        {{i.fuelcostdaystring}}
+                                                    </div>
+                                                    <div class="carousel-item " data-bs-interval="10000" style="text-align: left; padding-left: 5px; ">
+                                                        
+                                                        {{i.fuelcostmonthstring}}
+                                                    </div>
+                                                    <div class="carousel-item " data-bs-interval="10000" style="text-align: left; padding-left: 5px; ">
+                                                        
+                                                        {{i.fuelcunsuptionhourstring}}
+                                                    </div>
+                                                    <div class="carousel-item " data-bs-interval="10000" style="text-align: left; padding-left: 5px; ">
+                                                        
+                                                        {{i.fuelcunsuptiondaystring}}
+                                                    </div>
+                                                    <div class="carousel-item " data-bs-interval="10000" style="text-align: left; padding-left: 5px; ">
+                                                        
+                                                        {{i.fuelcunsuptionmonthstring}}
+                                                    </div>
+                                                    <div class="carousel-item " data-bs-interval="10000" style="text-align: left; padding-left: 5px; ">
+                                                        
+                                                        {{i.trip1string}}
+                                                    </div>
+                                                    <div class="carousel-item " data-bs-interval="10000" style="text-align: left; padding-left: 5px; ">
+                                                        
+                                                        {{i.trip2string}}
+                                                    </div>
+                                                    <div class="carousel-item " data-bs-interval="10000" style="text-align: left; padding-left: 5px; ">
+                                                        
+                                                        {{i.trip3string}}
+                                                    </div>
+
+                                                    
+                                    
+                                        {% endfor %} 
+                                    
+
+                                    
+
+                                    
+                                    
+                                    
+                                            </div>
+                                        </div>
+                                        <div class="col-1">
+                                            
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval3" data-bs-slide="next">
+                                                <span class="fa fa-ellipsis-h" style="font-size:25px;" aria-hidden="true" ></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {% endif %}
+
+
+
+
+                                        <div class="row">
+                                            <div class=" col-xl-4 col-sm-4 col-xs-4 col-lg-4  ">
+
+                                                
+                                                {% if type == "2" %}
+                                                
+
+                                                    {% if Device_Access == "0" %}
+
+                                                        <a  onclick="showToast2()" style="cursor: pointer;" >
+                                                            <div class="card hcard">
+                                                                <div class="card-body">
+                                                                    
+                                                                    <div >
+                                                                        <img src="{% static 'assets/images/icons/iot.png' %}" width="80px" height="80px">
+                                                                    </div>
+                                                                    <p>Devices </p>
+                                                                    
+                                                                
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        {% elif deviceId != "0"  %}
+
+                                                        <a  data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="cursor: pointer;">
+                                                            <div class="card hcard">
+                                                                <div class="card-body">
+                                                                    
+                                                                    <div >
+                                                                        <img src="{% static 'assets/images/icons/iot.png' %}" width="80px" height="80px">
+                                                                    </div>
+                                                                    <p>Devices</p>
+                                                                    
+                                                                   
+                                                                </div>
+                                                            </div><!--end card-->
+                                                        </a>
+
+                                                        {% else %}
+
+                                                        <a href="{% url 'Add_Device' %}" >
+                                                            <div class="card hcard">
+                                                                <div class="card-body">
+                                                                    
+                                                                    <div >
+                                                                        <img src="{% static 'assets/images/icons/iot.png' %}" width="80px" height="80px">
+                                                                    </div>
+                                                                    <p>Devices </p>
+                                                                    
+                                                                   
+                                                                </div>
+                                                            </div><!--end card-->
+                                                        </a>
+            
+
+
+
+                                                    {% endif %}
+
+                                                    {% elif deviceId != "0"  %}
+
+                                                    <a  data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="cursor: pointer;">
+                                                        <div class="card hcard">
+                                                            <div class="card-body">
+                                                                
+                                                                <div >
+                                                                    <img src="{% static 'assets/images/icons/iot.png' %}" width="80px" height="80px">
+                                                                </div>
+                                                                <p>Devices</p>
+                                                                
+                                                               
+                                                            </div>
+                                                        </div><!--end card-->
+                                                    </a>
+
+                                                    {% else %}
+
+                                                    <a href="{% url 'Add_Device' %}" >
+                                                        <div class="card hcard">
+                                                            <div class="card-body">
+                                                                
+                                                                <div >
+                                                                    <img src="{% static 'assets/images/icons/iot.png' %}" width="80px" height="80px">
+                                                                </div>
+                                                                <p>Devices </p>
+                                                                
+                                                               
+                                                            </div>
+                                                        </div><!--end card-->
+                                                    </a> 
+
+
+
+
+
+                                                {% endif %}
+
+                                                
+
+                                        
+                                            </div>
+
+
+           
+
+
+                                            <div class=" col-xl-4 col-sm-4 col-xs-4 col-lg-4  ">
+
+
+                                                {% if type == "2" %}
+
+                                               
+
+                                                    {% if Power_Access == "0" %}
+
+                                                    <a onclick="showToast2()" style="cursor: pointer;">
+                                                        <div class="card hcard" >
+                                                            <div class="card-body">
+                                                                
+                                                                <div>
+                                                                    <img src="{% static 'assets/images/icons/power.png' %}" width="60px" height="60px">
+                                                                </div>
+                                                                <p>Engine <br>Parameters</p>
+                                                    
+                                                    
+                                                                
+                                                               
+                                                            </div>
+                                                        </div><!--end card-->
+                                                    </a>
+
+                                                    {% elif deviceId != "0"  %}
+
+                                                    <a href="{% url 'Power_Manager' %}">
+                                                        <div class="card hcard" >
+                                                            <div class="card-body">
+                                                                
+                                                                <div>
+                                                                    <img src="{% static 'assets/images/icons/power.png' %}" width="60px" height="60px">
+                                                                </div>
+                                                                <p>Engine <br>Parameters</p>
+                                                        
+                                                        
+                                                                
+                                                               
+                                                            </div>
+                                                        </div><!--end card-->
+                                                        </a>
+
+
+                                                        
+
+
+                                                    
+
+                                                        {% else %}
+
+                                                        <a id="warning1" style="cursor: pointer;">
+                                                            <div class="card hcard" >
+                                                                <div class="card-body">
+                                                                    
+                                                                    <div>
+                                                                        <img src="{% static 'assets/images/icons/power.png' %}" width="60px" height="60px">
+                                                                    </div>
+                                                                    <p>Engine <br>Parameters</p>
+                                                            
+                                                            
+                                                                    
+                                                                
+                                                                </div>
+                                                            </div><!--end card-->
+                                                            </a>
+
+
+                                                    {% endif %}
+
+                                                    {% elif deviceId != "0"  %}
+
+                                                    <a href="{% url 'Power_Manager' %}">
+                                                        <div class="card hcard" >
+                                                            <div class="card-body">
+                                                                
+                                                                <div>
+                                                                    <img src="{% static 'assets/images/icons/power.png' %}" width="60px" height="60px">
+                                                                </div>
+                                                                <p>Engine <br>Parameters</p>
+                                                        
+                                                        
+                                                                
+                                                               
+                                                            </div>
+                                                        </div><!--end card-->
+                                                        </a>
+
+
+                                                        
+
+
+                                                    
+
+                                                        {% else %}
+
+                                                        <a id="warning1" style="cursor: pointer;">
+                                                            <div class="card hcard" >
+                                                                <div class="card-body">
+                                                                    
+                                                                    <div>
+                                                                        <img src="{% static 'assets/images/icons/power.png' %}" width="60px" height="60px">
+                                                                    </div>
+                                                                    <p>Engine <br>Parameters</p>
+                                                            
+                                                            
+                                                                    
+                                                                
+                                                                </div>
+                                                            </div><!--end card-->
+                                                            </a>
+
+
+                                                    {% endif %}
+                                                
+
+
+                                                
+                                         
+                                            </div>
+
+                                            <div class=" col-xl-4 col-sm-4 col-xs-4 col-lg-4 ">
+
+                                                {% if Report_Access == "0" %}
+
+                                                <a onclick="showToast2()" style="cursor: pointer;">
+                                                <div class="card hcard">
+                                                    <div class="card-body">
+                                                       
+                                                        <div>
+                                                            <img src="{% static 'assets/images/icons/report1.png' %}" width="80px" height="80px">
+                                                        </div>
+                                                        <p>Reports</p> 
+                                                       
+                                                    </div>
+                                                </div><!--end card-->
+                                            </a>
+
+                                            {% else %}
+
+                                            <a href="{% url 'Reports' %}">
+                                                <div class="card hcard">
+                                                    <div class="card-body">
+                                                       
+                                                        <div>
+                                                            <img src="{% static 'assets/images/icons/report1.png' %}" width="80px" height="80px">
+                                                        </div>
+                                                        <p>Reports</p> 
+                                                       
+                                                    </div>
+                                                </div><!--end card-->
+                                            </a>
+
+                                            {% endif %}
+                                            </div>
+
+
+                                            {% if deviceId != '0' %}
+
+                                            
+
+                                            <div class=" col-xl-4 col-sm-4 col-xs-4 col-lg-4  ">
+
+                                            {% if Fill_Access == "0" %}
+
+                                            <a onclick="showToast2()" style="cursor: pointer;">
+                                                <div class="card hcard">
+                                                    <div class="card-body">
+                                                        <div>
+                                                            <img src="{% static 'assets/images/icons/fuel1.png' %}" width="70px" height="70px">
+                                                        </div>
+                                                        <p>Fuel</p>
+                                                        
+                                                    </div>
+                                                </div><!--end card-->
+                                            </a>
+
+                                            {% else %}
+
+                                            
+
+
+                                                <a href="{% url 'Fill_Fuel' %}">
+                                                <div class="card hcard">
+                                                    <div class="card-body">
+                                                        <div>
+                                                            <img src="{% static 'assets/images/icons/fuel1.png' %}" width="70px" height="70px">
+                                                        </div>
+                                                        <p>Fuel</p>
+                                                        
+                                                    </div>
+                                                </div><!--end card-->
+                                            </a>
+                                            {% endif %}
+                                            </div>
+
+                                            {% else %}
+
+                                            <div class=" col-xl-4 col-sm-4 col-xs-4 col-lg-4  ">
+                                                <a id="warning1" style="cursor: pointer;">
+                                                <div class="card hcard">
+                                                    <div class="card-body">
+                                                        <div>
+                                                            <img src="{% static 'assets/images/icons/fuel1.png' %}" width="70px" height="70px">
+                                                        </div>
+                                                        <p>Fuel</p>
+                                                        
+                                                    </div>
+                                                </div><!--end card-->
+                                            </a>
+                                            </div>
+
+                                            {% endif %}
+
+                                            <div class=" col-xl-8 col-sm-8 col-xs-8 col-lg-8  " >
+
+                                               
+
+                                            <a onclick="showToast4()" style="cursor: pointer;">
+
+                                                <div class="card hcard" style="background-color: #595a05;">
+
+                                                    <div class="card-body">
+                                                        <div>
+                                                            <img src="{% static 'assets/images/icons/store-64.png' %}" width="70px" height="70px">
+                                                        </div>
+                                                        <p>FuelTM Store</p>
+                                                    </div>
+                                                </div>
+                                            </a> 
+                                            
+                                            </div>
+
+                                            <!-- <div class=" col-xl-4 col-sm-4 col-xs-4 col-lg-4  ">
+
+                                                {% if Purchase_Access == "0" %}
+
+                                            <a onclick="showToast2()" style="cursor: pointer;">
+
+                                                <div class="card hcard">
+
+                                                    <div class="card-body">
+                                                        <div>
+                                                            <img src="{% static 'assets/images/icons/card.png' %}" width="70px" height="70px">
+                                                        </div>
+                                                        <p>Purchase</p>
+                                                    </div>
+                                                </div>
+                                            </a> 
+                                            {% else %}   
+                                                <a href="{% url 'Purchase' %}">
+                                                <div class="card hcard">
+
+                                                    <div class="card-body">
+                                                        <div>
+                                                            <img src="{% static 'assets/images/icons/card.png' %}" width="70px" height="70px">
+                                                        </div>
+                                                        <p>Purchase</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            {% endif %}
+                                            </div> -->
+
+                                            <!-- <div class=" col-xl-4 col-sm-4 col-xs-4 col-lg-4 ">
+
+                                                {% if Service_Access == "0" %}
+
+                                                <a onclick="showToast2()" style="cursor: pointer;">
+                                                    <div class="card hcard">
+                                                   
+                                                        <div class="card-body">
+                                                          
+                                                            <div>
+                                                                <img src="{% static 'assets/images/icons/tool.png' %}" width="70px" height="70px">
+                                                            </div>
+                                                            <p>Services</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                {% else %}
+                                                 
+                                                 
+                                                <a href="{% url 'Service' %}">
+                                                <div class="card hcard">
+                                                   
+                                                    <div class="card-body">
+                                                      
+                                                        <div>
+                                                            <img src="{% static 'assets/images/icons/tool.png' %}" width="70px" height="70px">
+                                                        </div>
+                                                        <p>Services</p>
+                                                    </div>
+                                                </div>
+                                                </a>
+                                                {% endif %}
+                                            </div> -->
+
+
+                                            <div class="col-xl-12">
+                                                {% if Generator_Access == "0" %}
+
+                                                <a onclick="showToast2()" style="cursor: pointer;">
+                                                    <div class="card hcard">
+                                                        <div class="card-body">
+                                                           
+                                                            <h5>Edit Generator Details</h5>
+                                                        </div>
+                                                    </div><!--end card-->
+                                                </a>
+
+                                                {% else %}
+                                                <a href="{% url 'Edit_Application' %}">
+                                                <div class="card hcard">
+                                                    <div class="card-body">
+                                                       
+                                                        <h5>Edit Generator Details</h5>
+                                                    </div>
+                                                </div><!--end card-->
+                                            </a>
+                                            {% endif %}
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                </div><!--end card-->
+                            </div>
+                           
+    </div>
+    
+    {% endif %}
+                        <!-- end row -->
+
+                    
+
+
+                        
+                        <!-- end row -->
+                    </div>
+                    <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+                <div id="toast" class="toast" style="text-align: center;">Only admin can add a operator</div>
+
+                <div id="toast1" class="toast1" style="text-align: center;">This provision is loked.Please contact admin to unlock it.</div>
+
+                <div id="toast2" class="toast2" style="text-align: center;">You can't add generator</div>
+
+                <div id="toast3" class="toast3" style="text-align: center;">Opening Shortly</div>
+
+                <div id="toast4" class="toast4" style="text-align: center;">Warrenty section will unlok soon</div>
+
+                <div id="toast5" class="toast5" style="text-align: center;">AMC section will unlok soon</div>
+
+                <div id="toast6" class="toast6" style="text-align: center;">Only admin can use this feature</div>
+
+                <div id="toast7" class="toast7" style="text-align: center;">Please add or choose generator</div>
+                
+
+                
+
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <script>document.write(new Date().getFullYear())</script> © FuelTM.
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-end d-none d-sm-block">
+                                    Design & Develop by Cabal Technologies LLP
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+        <!-- Right Sidebar -->
+        <div class="right-bar">
+            <div data-simplebar class="h-100">
+                
+
+                
+
+                <div class="p-4">
+                    
+
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
+                        <label class="form-check-label" for="light-mode-switch">Light Mode</label>
+                    </div>
+    
+                   
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch">
+                        <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
+                    </div>
+    
+                   
+
+                    
+
+            
+                </div>
+
+            </div> <!-- end slimscroll-menu-->
+        </div>
+       
+        
+        <!-- /Right-bar -->
+
+        <!-- Right bar overlay-->
+        <div class="rightbar-overlay"></div>
+
+
+
+
+            <!--  Extra Large modal example -->
+            <div class="modal fade bs-example-modal-xl " tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true" style="margin-top: 50px;" >
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="myExtraLargeModalLabel">Alert </h2>
+                            <div style="margin-left:20px;">
+                                <div><h5>Priorities</h5></div>
+                                <div><div class="square1"></div><div style="padding-left: 25px; margin-top: -20px; font-size: 14px;">High</div></div>
+                                <div style="margin-top: -20px; padding-left: 70px;"><div class="square2"></div><div style="padding-left: 25px; margin-top: -20px; font-size: 14px;">Medium</div></div>
+                                <div style="margin-top: -20px; padding-left: 160px;"><div class="square3"></div><div style="padding-left: 25px; margin-top: -20px; font-size: 14px;">Low</div></div>
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+    
+                            {% for i in loadAlert %}
+                            {% if i.priority == '1' %}
+                            <div class="alert alert-danger" role="alert">
+                                <div class="fa fa-exclamation-circle fa-3x"> </div>
+                                <div style="padding-left: 50px; margin-top: -40px;">
+                                    <div style=" font-weight: 400; font-size: 14px ; color: black;">{{  i.timeStamp |fromunix |date:"j F Y g:i A" }}</div>
+                                    <div style=" font-weight: 400; font-size: 14px ; color: rgb(58, 55, 55);">{{i.msg}}</div>
+                                    
+                                </div>
+                                
+                            </div>
+                            {% endif %}
+                            {% if i.priority == '2' %}
+                            <div class="alert alert-danger" role="alert" style="background-color: #f2ba7b;">
+                                <div class="fa fa-exclamation-circle fa-3x"> </div>
+                                <div style="padding-left: 50px; margin-top: -40px;">
+                                    <div style=" font-weight: 400; font-size: 14px ; color: black;">{{ i.timeStamp |fromunix |date:"j F Y g:i A" }} </div>
+                                    <div style=" font-weight: 400; font-size: 14px ; color: rgb(58, 55, 55);">{{i.msg}}</div>
+                                    
+                                </div>
+                                
+                            </div>
+                            {% endif %}
+                            {% if i.priority == '3' %}
+    
+                            <div class="alert alert-danger" role="alert" style="background-color: #e7e98b;">
+                                <div class="fa fa-exclamation-circle fa-3x"> </div>
+                                <div style="padding-left: 50px; margin-top: -40px;">
+                                    <div style=" font-weight: 400; font-size: 14px ; color: black;">{{  i.timeStamp |fromunix |date:"j F Y g:i A" }}</div>
+                                    <div style=" font-weight: 400; font-size: 14px ; color: rgb(58, 55, 55);">{{i.msg}}</div>
+                                    
+                                </div>
+                                
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+        <!-- JAVASCRIPT -->
+        <script src="{% static 'assets/libs/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'assets/libs/metismenu/metisMenu.min.js' %}"></script>
+        <script src="{% static 'assets/libs/simplebar/simplebar.min.js' %}"></script>
+        <script src="{% static 'assets/libs/node-waves/waves.min.js' %}"></script>
+
+        <!-- apexcharts -->
+        <script src="{% static 'assets/libs/apexcharts/apexcharts.min.js' %}"></script>
+
+        <script src="{% static 'assets/js/pages/apexcharts.init.js' %}"></script>
+
+        <!-- dashboard init -->
+        <script src="{% static 'assets/js/pages/dashboard.init.js' %}"></script>
+        
+        <script src="{% static 'assets/libs/jquery-knob/jquery.knob.min.js' %}"></script> 
+
+        <script src="{% static 'assets/js/pages/jquery-knob.init.js' %}"></script> 
+
+        <!-- App js -->
+        <script src="{% static 'assets/js/app.js' %}"></script>
+      
+
+
+        
+
+
+        <script>
+           
+      $(document).on('change','#selectgen',function(){
+      select = $('#selectgen').val();
+    
+        document.getElementById('generator').value = select
+        document.querySelector('#myform').submit();
+      
+    });
+
+        </script>
+
+
+
+   <script>
+    
+		$(document).on('click', '#warning1', function(e) {
+			swal(
+				
+				`<img src="{% static 'assets/images/icons/cross.png' %}" width=150px,height=150px >`,
+               
+                '<b  style="font-weight: 700;">Please Add Device details.</b>',
+				
+        
+        
+			)
+		});
+
+        $(document).on('click', '#warning2', function(e) {
+			swal(
+				
+				`<img src="{% static 'assets/images/icons/cross.png' %}" width=150px,height=150px >`,
+               
+                '<b  style="font-weight: 700;">Please choose or add generators</b>',
+				
+        
+        
+			)
+		});
+   </script>
+
+<script>
+    function showToast() {
+    var toast = document.getElementById("toast");
+    toast.classList.add("show");
+    setTimeout(function() {
+    toast.classList.remove("show");
+    }, 5000);
+
+  
+}
+
+function showToast2() {
+    var toast = document.getElementById("toast1");
+    toast.classList.add("show1");
+    setTimeout(function() {
+    toast.classList.remove("show1");
+    }, 5000);
+
+  
+}
+
+function showToast3() {
+    var toast = document.getElementById("toast2");
+    toast.classList.add("show2");
+    setTimeout(function() {
+    toast.classList.remove("show2");
+    }, 5000);
+
+  
+}
+
+function showToast4() {
+    var toast = document.getElementById("toast3");
+    toast.classList.add("show3");
+    setTimeout(function() {
+    toast.classList.remove("show3");
+    }, 5000);
+
+  
+}
+
+function showToast5() {
+    var toast = document.getElementById("toast4");
+    toast.classList.add("show4");
+    setTimeout(function() {
+    toast.classList.remove("show4");
+    }, 5000);
+
+  
+}
+
+function showToast6() {
+    var toast = document.getElementById("toast5");
+    toast.classList.add("show5");
+    setTimeout(function() {
+    toast.classList.remove("show5");
+    }, 5000);
+
+  
+}
+
+function showToast7() {
+    var toast = document.getElementById("toast6");
+    toast.classList.add("show6");
+    setTimeout(function() {
+    toast.classList.remove("show6");
+    }, 5000);
+
+  
+}
+
+function showToast8() {
+    var toast = document.getElementById("toast7");
+    toast.classList.add("show7");
+    setTimeout(function() {
+    toast.classList.remove("show7");
+    }, 5000);
+
+  
+}
+
+</script>
+   
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script>
+  
+  var options = {
+chart: {
+  height: 280,
+  type: "area"
+},
+dataLabels: {
+  enabled: false
+},
+series: [
+  {
+    name: "Total Working Hours",
+    // data: [0, 20.5, 38, 45, 19, 23]
+
+    data: [0,{% for data in timeDiffrence %}'{{ data }}',{% endfor %}0]
+  }
+],
+fill: {
+  type: "gradient",
+  gradient: {
+    shadeIntensity: 1,
+    opacityFrom: 0.7,
+    opacityTo: 0.9,
+
+   
+    stops: [0, 90, 100]
+  }
+},
+
+
+xaxis: {
+
+categories: ['',{% for category in monthlist %}'{{ category }}',{% endfor %}" "]
+}
+};
+
+var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+chart.render();
+
+</script>
+
+
+
+<script>
+  
+    var options = {
+  chart: {
+    height: 280,
+    type: "area"
+  },
+  dataLabels: {
+    enabled: false
+  },
+  series: [
+    {
+      name: "Total Working Hours",
+      // data: [0, 20.5, 38, 45, 19, 23]
+  
+      data: [0,{% for data in daytimeDiffrence %}'{{ data }}',{% endfor %}0]
+    }
+  ],
+  fill: {
+    type: "gradient",
+    gradient: {
+      shadeIntensity: 1,
+      opacityFrom: 0.7,
+      opacityTo: 0.9,
+  
+     
+      stops: [0, 90, 100]
+    }
+  },
+  
+  
+  xaxis: {
+  
+  categories: ['',{% for day in daylist %}'{{ day }}',{% endfor %}" "]
+  }
+  };
+  
+  var chart = new ApexCharts(document.querySelector("#chart2"), options);
+  
+  chart.render();
+  
+  </script>
+
+<script>
+  
+    var options = {
+  chart: {
+    height: 280,
+    type: "area"
+  },
+  dataLabels: {
+    enabled: false
+  },
+  series: [
+    {
+      name: "Total Fuel Used",
+      // data: [0, 20.5, 38, 45, 19, 23]
+  
+      data: [0,{% for data in heightDiffrence %}'{{ data }}',{% endfor %}0]
+    }
+  ],
+  fill: {
+    type: "gradient",
+    gradient: {
+      shadeIntensity: 1,
+      opacityFrom: 0.7,
+      opacityTo: 0.9,
+  
+     
+      stops: [0, 90, 100]
+    }
+  },
+  
+  
+  xaxis: {
+  
+    categories: ['',{% for category in monthlist %}'{{ category }}',{% endfor %}" "]
+  }
+  };
+  
+  var chart = new ApexCharts(document.querySelector("#chart3"), options);
+  
+  chart.render();
+  
+  </script>
+
+<script>
+  
+    var options = {
+  chart: {
+    height: 280,
+    type: "area"
+  },
+  dataLabels: {
+    enabled: false
+  },
+  series: [
+    {
+      name: "Total Fuel Used",
+      // data: [0, 20.5, 38, 45, 19, 23]
+  
+      data: [0,{% for data in dayheightDiffrence %}'{{ data }}',{% endfor %}0]
+    }
+  ],
+  fill: {
+    type: "gradient",
+    gradient: {
+      shadeIntensity: 1,
+      opacityFrom: 0.7,
+      opacityTo: 0.9,
+  
+     
+      stops: [0, 90, 100]
+    }
+  },
+  
+  
+  xaxis: {
+  
+  categories: ['',{% for category in daylist %}'{{ category }}',{% endfor %}" "]
+  }
+  };
+  
+  var chart = new ApexCharts(document.querySelector("#chart4"), options);
+  
+  chart.render();
+  
+  </script>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+    </script>
+    </body>
+
+</html>

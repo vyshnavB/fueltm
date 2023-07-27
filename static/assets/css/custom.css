@@ -1,0 +1,353 @@
+/* 
+
+.hcard{
+    border-radius: 10px;
+    
+    text-align: center;
+    color: #fff;
+    background-color: rgb(82, 77, 77);
+}
+
+.graph2{
+    border-radius: 10px;
+    
+    text-align: center;
+    color: #fff;
+    background-color: rgb(82, 77, 77);
+}
+
+
+
+ 
+ .Detail{
+    color: #fff;
+   align-items: center;
+   margin: auto;
+    
+    
+}
+.hcard3{
+    background-color:  rgb(19, 211, 211);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    height: 70px;
+    width: 100%;
+    line-height: 10px;
+    font-size: 13px;
+    margin-top: 10px;
+   
+    
+    
+    
+}
+
+.hcard4{
+    background-color: rgb(19, 211, 211);
+    border-radius: 10px;
+    padding: 10px;
+    
+    width: 100%;
+    font-size: 13px;
+    margin-top: 10px;
+    
+}
+
+.Detail{
+    color: #fff;
+    padding: 10px;
+   
+    
+}
+
+.date{
+font-size: 20px;
+
+}
+
+.knob{
+    width: auto;
+    height: auto;
+} */
+
+
+.date{
+    font-size: 20px;
+    
+    }
+
+.hcard{
+    border-radius: 10px;
+    
+    text-align: center;
+    color: #fff;
+    background-color: rgb(82, 77, 77);
+}
+.hcard1{
+    border-radius: 10px;
+    
+    text-align: center;
+    color: #fff;
+    background-color: rgb(82, 77, 77);
+}
+
+
+.graph2{
+    border-radius: 10px;
+    
+    text-align: center;
+    color: #fff;
+    /* background-color: rgb(82, 77, 77); */
+}
+
+
+
+/* .hcard2{
+  
+    position: relative;
+    margin: auto;
+   
+   
+    
+}
+.circle_chart{
+    
+    position: absolute;
+   
+ } */
+ 
+ .Detail{
+    color: #fff;
+   align-items: center;
+   margin-top: 10px;
+   
+    
+    
+}
+.box-one{
+
+padding: 20px ;
+width: auto;
+height: 250px;
+}
+
+
+.hcard3{
+    background-color:  rgb(19, 211, 211);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: -30px;
+    height: 70px;
+    width: 100%;
+    line-height: 10px;
+    font-size: 13px;
+    
+   
+    
+    
+    
+}
+
+.hcard4{
+    background-color: rgb(19, 211, 211);
+    border-radius: 10px;
+    padding: 10px;
+    
+    width: 100%;
+    font-size: 13px;
+    margin-top: 10px;
+    
+}
+
+/* .Detail{
+    color: #fff;
+    padding: 10px;
+   
+    
+} */
+
+.date{
+font-size: 20px;
+
+}
+
+
+.knob{
+    height: 500px;
+    width: 500px;
+}
+
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 2;
+  }
+  .toast.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .toast1 {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 2;
+  }
+  .toast1.show1 {
+    opacity: 1;
+    visibility: visible;
+  }
+
+
+  .toast2 {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 2;
+  }
+  .toast2.show2 {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .square1 {
+    height: 20px;
+    width: 20px;
+    background-color: #f49c9c;
+  }
+  .square2 {
+    height: 20px;
+    width: 20px;
+    background-color: #f2ba7b;
+  }
+  .square3 {
+    height: 20px;
+    width: 20px;
+    background-color: #e7e98b;
+  }
+
+
+
+  .toast3 {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 2;
+  }
+  .toast3.show3 {
+    opacity: 1;
+    visibility: visible;
+  }
+
+
+  .toast4 {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 2;
+  }
+  .toast4.show4 {
+    opacity: 1;
+    visibility: visible;
+  }
+
+
+  .toast5 {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 2;
+  }
+  .toast5.show5 {
+    opacity: 1;
+    visibility: visible;
+  }
+
+
+  .toast6 {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 2;
+  }
+  .toast6.show6 {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .toast7 {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 2;
+  }
+  .toast7.show7{
+    opacity: 1;
+    visibility: visible;
+  }

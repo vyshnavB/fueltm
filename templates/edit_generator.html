@@ -1,0 +1,1197 @@
+<!doctype html>
+<html lang="en">
+
+    <head>{% load static %}
+        
+        <meta charset="utf-8" >
+        <title>FuelTM  </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" >
+        <meta content="Themesbrand" name="author" >
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'assets/images/logo/logo3.png'  %}">
+
+        <!-- Bootstrap Css -->
+        <link href="{% static 'assets/css/bootstrap.min.css' %}"  rel="stylesheet" type="text/css" >
+        <!-- Icons Css -->
+        <link href="{% static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" >
+        <!-- App Css-->
+        <link href="{% static 'assets/css/app.min.css' %}"  rel="stylesheet" type="text/css" >
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link href="{% static 'assets/css/custom.css' %}"  rel="stylesheet" type="text/css" >
+
+        <link href="{% static 'assets/css/custom1.css' %}"  rel="stylesheet" type="text/css" >
+
+        
+        
+
+    </head>
+    <style>
+        input[type="text"][disabled] {
+   color: red;
+}
+    </style>
+
+    <body data-sidebar="dark" data-layout-mode="light">
+
+    <!-- <body data-layout="horizontal" data-topbar="dark"> -->
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+
+            
+            <header id="page-topbar">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box">
+                            <!-- <a href="Home.html" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="{% static 'assets/images/logo.svg' %}" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="{% static 'assets/images/logo-dark.png' %}" alt="" height="17">
+                                </span>
+                            </a> -->
+
+                            <a href="{% url 'Home' %}" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="{% static 'assets/images/logo/logo2.png' %}" alt="" height="26">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="{% static 'assets/images/logo/FuelTM_logo.png' %}" alt="" height="19">
+                                </span>
+                            </a>
+                        </div>
+
+                        <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+
+                     
+                    </div>
+
+                    <div class="d-flex">
+
+                        <div class="dropdown d-inline-block d-lg-none ms-2">
+                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-magnify"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                                aria-labelledby="page-header-search-dropdown">
+        
+                                <form class="p-3">
+                                    <div class="form-group m-0">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        
+
+                        
+
+                        <div class="dropdown d-none d-lg-inline-block ms-1">
+                            <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
+                                <i class="bx bx-fullscreen"></i>
+                            </button>
+                        </div>
+
+                        
+
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="{% static 'assets/images/users/avatar-1.jpg' %}"
+                                    alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{user}}</span>
+                                <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <!-- <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a> -->
+         
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" href="{% url 'Logout' %}"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
+                            </div>
+                        </div>
+
+                       
+
+                    </div>
+                </div>
+            </header>
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
+
+                <div data-simplebar class="h-100">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+                            <!-- <li class="menu-title" key="t-menu">Menu</li> -->
+
+                            
+                            <li>
+                                <a href="{% url 'Home' %}" class="waves-effect">
+                                    <i class="fa fa-home" ></i>
+
+                                    
+
+                                    <span key="t-file-manager">Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                {% if Generator_Access == "0" %}
+
+                                <a onclick="showToast3()" style="cursor: pointer;">
+                                    <i class="fa fa-plus-circle" ></i>
+                                    
+
+                                    <span key="t-file-manager">Add Application</span>
+                                </a>
+                                {% else %}
+                                
+                                <a href="{% url 'Add_Application' %}" class="waves-effect">
+                                    <i class="fa fa-plus-circle" ></i>
+                                    
+
+                                    <span key="t-file-manager">Add Application</span>
+                                </a>
+
+                                {% endif %}
+                            </li>
+
+                            <li>
+                                {% if type == "2" %}
+                                       
+
+                                <a  onclick="showToast()" style="cursor: pointer;" >
+                                    <i class="fa fa-user" ></i>
+
+                                    <span key="t-file-manager">Users</span>
+                                
+                                </a>
+
+                                {% else %}
+                                <a href="{% url 'Users' %}" class="waves-effect">
+                                    <i class="fa fa-user" ></i>
+
+                                    <span key="t-file-manager">Users</span>
+                                </a>
+                                {% endif %}
+
+
+                                
+                            </li>
+
+                             <!-- <li>
+                                <a href="{% url 'Hotspot' %}" class="waves-effect">
+                                    <i class="mdi mdi-monitor" ></i>
+
+                                    <span key="t-file-manager">Hotspot</span>
+                                </a>
+                            </li> -->
+                            <li>
+
+                                {% if type == "2" %}
+                                       
+
+                                <a  onclick="showToast7()" style="cursor: pointer;" >
+                                    <i class="fa fa-bell-o" ></i>
+
+                                    <span key="t-file-manager">Notification Delay</span>
+                                
+                                </a>
+
+                                {% else %}
+                                <a href="{% url 'Notification_Delay' %}" class="waves-effect">
+                                    <i class="fa fa-bell-o" ></i>
+
+                                    <span key="t-file-manager">Notification Delay</span>
+                                </a>
+                                {% endif %}
+
+
+
+
+                                
+
+
+
+                            </li>
+                            <li>
+
+                                {% if Service_Access == "0" %}
+
+                                                <a onclick="showToast2()" style="cursor: pointer;" class="waves-effect">
+                                                   
+                                                   
+                                                        <i class="mdi mdi-tools" ></i>
+                                                       
+                    
+                                                        <span key="t-file-manager"> Service</span>
+                                                </a>
+                                               
+                                {% else %}
+
+                                    {% if generator == 0 %}
+                                            <a onclick="showToast8()" class="waves-effect">
+                                                        
+                                                <i class="mdi mdi-tools" ></i>
+                                            
+            
+                                                <span key="t-file-manager"> Service</span>
+                                            </a>
+
+
+                                    {% else  %}
+                                                 
+                                                 
+                                                <a href="{% url 'Service' %}" class="waves-effect">
+                                                   
+                                                        <i class="mdi mdi-tools" ></i>
+                                                       
+                    
+                                                        <span key="t-file-manager"> Service</span>
+                                                </a>
+                                    {% endif %}           
+                                {% endif %}
+
+                                
+                            </li>
+                            <li>
+                             {% if Purchase_Access == "0" %}
+
+                                            <a onclick="showToast2()" style="cursor: pointer;" class="waves-effect">
+
+                                                
+                                                    <i class="fa fa-credit-card" ></i>
+
+                                                    <span key="t-file-manager">Purchase</span><!--end card-->
+                                            </a> 
+                            {% else %}
+                                {% if generator == 0 %}
+                                    <a onclick="showToast8()" class="waves-effect">
+                                                
+                                        <i class="fa fa-credit-card" ></i>
+
+                                        <span key="t-file-manager">Purchase</span><!--end card-->
+                                    </a>
+
+
+                                {% else  %}
+
+                                                <a href="{% url 'Purchase' %}" class="waves-effect">
+                                                    <i class="fa fa-credit-card" ></i>
+
+                                                    <span key="t-file-manager">Purchase</span><!--end card-->
+                                            </a>
+                                {% endif %}          
+                            {% endif %}
+
+
+
+
+
+                                
+                            </li>
+                            <li>
+                                <a onclick="showToast5()" class="waves-effect" style="cursor: pointer;">
+                                    <i class="mdi mdi-security" ></i>
+
+                                    <span key="t-file-manager">Warranty Section</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="showToast6()" class="waves-effect" style="cursor: pointer;">
+                                    <i class="mdi mdi-toolbox" ></i>
+
+                                    <span key="t-file-manager">AMC Section</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'Logout' %}" class="waves-effect">
+                                    <i class="fa fa-sign-out" ></i>
+
+                                    <span key="t-file-manager">Logout</span>
+                                </a>
+                            </li>
+
+                            
+
+
+                        </ul>
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+            
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            
+                            <div class="col-xl-12">
+                                
+                                <!-- end row -->
+
+                                <div class="card">
+                                    <div class="card-body" >
+                                       
+                                      <h4>GENERATORS</h4>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            
+                            <div class="col-xl-12">
+                                
+                                <!-- end row -->
+
+                                <div class="card">
+                                    <div class="card-body" >
+
+                                        {% for message in messages %}
+                                        <h6 class="text-center" style=" color: rgb(255, 0, 0); font-size: 12px; ">
+                                            <div class="alert alert-danger mt-2">
+                                             {{ message }}
+                                            </div>
+                                            </h6>
+                                        {% endfor %}
+                                       
+                                        <form action="{% url 'Edit_Application' %}" method="POST" style="margin-top: 80px;">{% csrf_token %}
+
+                                         {% for i in Generator %} 
+                                         
+                                         
+
+                                        <div class="form-group mt-5" >
+                                                <select class="form-control input1" name="application" onclick="hidinput3('hello3', this)" required style="margin-left: 10px;">
+                                                   
+                                                    <option  {% if i.application  == 'Generator'  %}selected{% endif %}  >Generator</option>
+                                                    <option {% if i.application  == 'Fire Engine' %}selected{% endif %}>Fire Engine</option>
+                                                    <option {% if i.application  == 'Bulk Storage' %}selected{% endif %}>Bulk Storage</option>
+    
+                                                </select>
+                                                <label class="form-control-placeholder" for="name">Application Type</label>
+                                                
+                                            </div>
+
+
+                                            <div class="form-group mt-5" style="margin-left: 10px;">
+                                                <input type="text"  class="form-control input"  value="{{i.name}}" disabled  required>
+                                                <input type="text"  class="form-control input" name="name" value="{{i.name}}"   required hidden>
+                                                <label class="form-control-placeholder" for="name" style="margin-top: -20px; font-size: 14px; " >Generator Name</label>
+                                            </div>
+                                        <label class="form-label">Choose Shape Of Tank</label>
+
+
+
+                                        <div class="row text-center">
+                                            <div class='col '>
+
+                                                {% if i.shape == "Rectangle" %}
+
+                                            <input type="radio" name="shape" id="img1" class="d-none imgbgchk r1checked" value="Rectangle" checked onclick="gentype1()" >
+                                              <label for="img1">
+                                                <img src="{% static 'assets/images/tank_shapes/rect.png' %}" alt="">
+                                               
+                                                <div class="tick_container">
+                                                  <div class="tick">
+                                                    <i class="fa fa-circle-" ></i>
+
+                                                </div>
+                                                </div>
+                                                </label>
+                                                {% else %}
+                                                <input type="radio" name="shape" id="img1" class="d-none imgbgchk" value="Rectangle" onclick="gentype1()" >
+                                              <label for="img1">
+                                                <img src="{% static 'assets/images/tank_shapes/rect.png' %}" alt="">
+                                               
+                                                <div class="tick_container">
+                                                  <div class="tick">
+                                                    <i class="fa fa-circle-" ></i>
+
+                                                </div>
+                                                </div>
+                                                </label>
+                                                {% endif %}
+                                            </div>
+                                            <div class='col '>
+                                                {% if i.shape == "VCylinder" %}
+                                            <input type="radio" name="shape" id="img2 " class="d-none imgbgchk r2checked" value="VCylinder" checked onclick="gentype2()">
+                                              <label for="img2">
+                                                <img src="{% static 'assets/images/tank_shapes/vertical.png' %}" alt="">
+                                                <div class="tick_container">
+                                                  <div class="tick"><i class="fa fa-circle-" ></i></div>
+                                                </div>
+                                              </label>
+                                              {% else %}
+                                              <input type="radio" name="shape" id="img2" class="d-none imgbgchk" value="VCylinder" onclick="gentype2()">
+                                              <label for="img2">
+                                                <img src="{% static 'assets/images/tank_shapes/vertical.png' %}" alt="">
+                                                <div class="tick_container">
+                                                  <div class="tick"><i class="fa fa-circle-" ></i></div>
+                                                </div>
+                                              </label>
+                                              {% endif %}
+                                            </div>
+                                            <div class='col '>
+                                                {% if i.shape == "HCylinder" %}
+                                            <input type="radio" name="shape" id="img3" class="d-none imgbgchk r3checked" value="HCylinder" checked onclick="gentype3()">
+                                              <label for="img3">
+                                                <img src="{% static 'assets/images/tank_shapes/horizontal.png' %}" alt="">
+                                                <div class="tick_container">
+                                                  <div class="tick"><i class="fa fa-circle-" ></i></div>
+                                                </div>
+                                              </label>
+                                              {% else %}
+                                              <input type="radio" name="shape" id="img3" class="d-none imgbgchk" value="HCylinder" onclick="gentype3()">
+                                              <label for="img3">
+                                                <img src="{% static 'assets/images/tank_shapes/horizontal.png' %}" alt="">
+                                                <div class="tick_container">
+                                                  <div class="tick"><i class="fa fa-circle-" ></i></div>
+                                                </div>
+                                              </label>
+                                              {% endif %}
+                                            </div>
+                                            
+                                          </div>
+
+                                      
+
+
+
+                                        
+
+                                        <label class="form-label mt-5">Fuel Parameters</label>
+
+                                        <div class="form-group mt-5">
+                                            <input type="number"  class="form-control input" name="totalFuel" value="{{i.totalFuel}}" required >
+                                            <label class="form-control-placeholder" >Total Fuel Capacity (in litres)</label>
+                                        </div>
+
+                                        
+
+                                        <label class="form-label">Tank Diamensions</label>
+                                        <div class="form-group mt-5" id="1" style="display: block;">
+                                            <input type="number" name="rectanklength"  class="form-control input" id="1.1" value="{{i.length}}" required  >
+                                            <label class="form-control-placeholder" >Fuel Tank Length(in cm)</label>
+                                        </div>
+                                        <div class="form-group mt-5" id="2" style="display: block;">
+                                            <input type="number" name="rectankwidth"  class="form-control input" id="1.2" value="{{i.width}}" required  >
+                                            <label class="form-control-placeholder" >Fuel Tank Width (in cm)</label>
+                                        </div>
+                                        <div class="form-group mt-5" id="3" style="display: block;">
+                                            <input type="number" name="rectankheight"  class="form-control input" id="1.3" value="{{i.height}}" required >
+                                            <label class="form-control-placeholder" >Fuel Tank height</label>
+                                        </div>
+                                        <div class="form-group mt-5" id="4" style="display: block;">
+                                            <input type="number" name="rectankslope"  class="form-control input" id="1.4" value="{{i.slope}}" required  >
+                                            <label class="form-control-placeholder" >Fuel Tank  Slope Height</label>
+                                        </div>
+
+                                        <div class="form-group mt-5" id="5" style="display: none;">
+                                            <input type="number" name="vctankheight"  class="form-control input" id="1.5" value="{{i.height}}" >
+                                            <label class="form-control-placeholder" >Fuel Tank height</label>
+                                        </div>
+                                        <div class="form-group mt-5" id="8" style="display: none;">
+                                            <input type="number" name="htanklenght"  class="form-control input" id="1.8" value="{{i.length}}">
+                                            <label class="form-control-placeholder" >Fuel Tank Length(in cm)</label>
+                                        </div>
+
+                                        <div class="form-group mt-5" id="6" style="display: none;" >
+                                            <input type="number" name="vc_h_tankslope"  class="form-control input" id="1.6" value="{{i.slope}}">
+                                            <label class="form-control-placeholder" >Fuel Tank Slope Height</label>
+                                        </div>
+
+                                        <div class="form-group mt-5" id="7"  style="display: none;">
+                                            <input type="number" name="vc_h_tankradious"  class="form-control input" id="1.7" value="{{i.radious}}">
+                                            <label class="form-control-placeholder" >Fuel Tank Radious(in cm)</label>
+                                        </div>
+
+                                        
+
+                                       
+
+                                        <label class="form-label">Electric parameters</label>
+
+                                        <!-- <div class="form-group mt-5" >
+                                            <input type="text" name="enginmake"  class="form-control input" required>
+                                            <label class="form-control-placeholder">Engin make</label>
+                                        </div> -->
+
+                                        <div class="form-group mt-5" >
+                                            <select class="form-control input1" id="engine_make" onclick="hidinput1('hello', this)"  name="engine_make" required onclick="hidinput('hello', this)" style="margin-left: 10px;">
+                                               
+
+                                                {% for j in listEngineMake %}
+
+                                                
+                                                <option value="{{j.engineMake}}" {% if j.engineMake ==  i.engineMake %}selected{% endif %}>{{j.engineMake}}</option>
+
+                                                {% endfor %}
+
+                                            </select>
+                                            <label class="form-control-placeholder" for="name">Engine Make</label>
+                                            
+                                        </div>
+
+                                        <div class="form-group mt-5" id="hello" style="display: none;"  >
+                                            <input type="text"   name="other_enginmake" value="{{i.engineMakename}}"  class="form-control input"  style="margin-left: 10px;">
+                                            <label class="form-control-placeholder" style="margin-left: 10px;">Engin make</label>
+                                        </div>
+
+                                        <div class="form-group mt-5" >
+                                            <select class="form-control input1 kw" id="rating_kw"  name="rating_kw" onclick="hidinput2('hello2', this)" required style="margin-left: 10px;">
+                                               
+
+                                                {% for j in listKw %}
+                                                <option {% if j.kw ==  i.ratingInKW %}selected{% endif %}>{{j.kw}}</option>
+
+                                                {% endfor %}
+
+
+                                                
+                                            </select>
+                                            <label class="form-control-placeholder" for="name">Rating in Kw</label>
+                                            
+                                        </div>
+
+                                        <div class="form-group mt-5" id="hello2" style="display: none;"  >
+                                            <input type="number" step="0.01" name="other_Kw" value="{{i.ratingInKWname}}"  class="form-control input kw1"  style="margin-left: 10px;">
+                                            <label class="form-control-placeholder" style="margin-left: 10px;">Rating in Kw</label>
+                                        </div>
+                                        <div class="form-group mt-5" >
+                                            <select class="form-control input1 kva" name="rating_kwa" required style="margin-left: 10px;">
+                                               
+
+                                                
+                                                <option selected value="0.8">0.8pf</option>
+                                                <option value="1">1pf</option>
+
+                                                
+
+
+                                                
+                                            </select>
+                                            <label class="form-control-placeholder " for="name" >Rating in KWA</label>
+                                            
+                                        </div>
+                                        <label class="ratingkva"  style="margin-left: 5px; color: #6c6e6e" ></label>
+
+                                        <div  style="margin-left: 15px;"  >
+                                            <div id="v1" class="form-group mt-5" style="display: none;">
+                                                <input type="number" name="valueZero" value="{{i.valueZero}}" step="0.01"    class="form-control input" >
+                                                <label class="form-control-placeholder" >Fuel Consumption 0% (Ltr/hr)</label>
+                                            </div>
+                                            <div id="v2" class="form-group mt-5" style="display: none;">
+                                                <input type="number" name="value25" value="{{i.value25}}" step="0.01"    class="form-control input" >
+                                                <label class="form-control-placeholder" >Fuel Consumption 25% (Ltr/hr)</label>
+                                            </div>
+                                            <div id="v3" class="form-group mt-5" style="display: none;">
+                                                <input type="number" name="value50" value="{{i.value50}}" step="0.01"   class="form-control input" >
+                                                <label class="form-control-placeholder" >Fuel Consumption 50% (Ltr/hr)</label>
+                                            </div>
+                                            <div id="v4" class="form-group mt-5" style="display: none;">
+                                                <input type="number" name="value75" value="{{i.value75}}" step="0.01"   class="form-control input" >
+                                                <label class="form-control-placeholder" >Fuel Consumption 75% (Ltr/hr)</label>
+                                            </div>
+                                            <div id="v5" class="form-group mt-5" style="display: none;">
+                                                <input type="number" name="value100" value="{{i.value100}}"  step="0.01"   class="form-control input" >
+                                                <label class="form-control-placeholder" >Fuel Consumption 100% (Ltr/hr)</label>
+                                            </div>
+                                        </div>
+
+                                       
+
+                                       
+
+                                        
+
+                                        <div id="hello3" class="form-group mt-5" style="display: none;">
+                                            <input id="hp" type="number" name="hp"  class="form-control input" >
+                                            <label class="form-control-placeholder" >Rating in HP</label>
+                                        </div>
+
+
+
+
+
+                                        <div class="form-group mt-5" >
+                                            <select class="form-control input1" name="phase" required style="margin-left: 10px;">
+                                               
+
+                                                <option {% if i.phase ==  'Single Phase' %}selected{% endif %}>Single Phase</option>
+                                                <option {% if i.phase ==  'Three Phase' %}selected{% endif %}>Three Phase</option>
+                                                
+                                            </select>
+                                            <label class="form-control-placeholder" for="name">Phase</label>
+                                            
+                                        </div>
+
+                                      
+
+                                        <div class="form-group mt-5 sub1">
+                                            <button class="btn btn-info form-control  " type="submit"  >Submit</button>
+                                        </div>
+                
+                                        {% endfor %}
+                                    </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                       
+                        
+
+                    
+
+                    
+
+
+                        
+                        <!-- end row -->
+                    </div>
+                    <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+                
+               
+
+                <div id="toast" class="toast" style="text-align: center;">Only admin can add a operator</div>
+
+                <div id="toast1" class="toast1" style="text-align: center;">This provision is loked.Please contact admin to unlock it.</div>
+
+                <div id="toast2" class="toast2" style="text-align: center;">You can't add generator</div>
+
+                <div id="toast3" class="toast3" style="text-align: center;">Opening Shortly</div>
+
+                <div id="toast4" class="toast4" style="text-align: center;">Warrenty section will unlok soon</div>
+
+                <div id="toast5" class="toast5" style="text-align: center;">AMC section will unlok soon</div>
+
+                <div id="toast6" class="toast6" style="text-align: center;">Only admin can use this feature</div>
+
+                <div id="toast7" class="toast7" style="text-align: center;">Please add or choose generator</div>
+
+                
+
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <script>document.write(new Date().getFullYear())</script> © FuelTM.
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-end d-none d-sm-block">
+                                    Design & Develop by Cabal Technologies LLP
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+        <!-- Right Sidebar -->
+        <div class="right-bar">
+            <div data-simplebar class="h-100">
+                
+
+                
+
+                <div class="p-4">
+                    
+
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
+                        <label class="form-check-label" for="light-mode-switch">Light Mode</label>
+                    </div>
+    
+                   
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch">
+                        <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
+                    </div>
+    
+                   
+
+                    
+
+            
+                </div>
+
+            </div> <!-- end slimscroll-menu-->
+        </div>
+        <!-- /Right-bar -->
+
+        <!-- Right bar overlay-->
+        <div class="rightbar-overlay"></div>
+
+        <!-- JAVASCRIPT -->
+        <script src="{% static 'assets/libs/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'assets/libs/metismenu/metisMenu.min.js' %}"></script>
+        <script src="{% static 'assets/libs/simplebar/simplebar.min.js' %}"></script>
+        <script src="{% static 'assets/libs/node-waves/waves.min.js' %}"></script>
+
+        <!-- apexcharts -->
+        <script src="{% static 'assets/libs/apexcharts/apexcharts.min.js' %}"></script>
+
+        <script src="{% static 'assets/js/pages/apexcharts.init.js' %}"></script>
+
+        <!-- dashboard init -->
+        <script src="{% static 'assets/js/pages/dashboard.init.js' %}"></script>
+        
+        <script src="{% static 'assets/libs/jquery-knob/jquery.knob.min.js' %}"></script> 
+
+        <script src="{% static 'assets/js/pages/jquery-knob.init.js' %}"></script> 
+
+        <!-- App js -->
+        <script src="{% static 'assets/js/app.js' %}"></script>
+
+        <script>
+            function gentype1() {
+                    
+                        document.getElementById('1').style.display = 'block';
+                        document.getElementById('2').style.display = 'block';
+                        document.getElementById('3').style.display = 'block';
+                        document.getElementById('4').style.display = 'block';
+
+                        document.getElementById("1.1").required = true;
+                        document.getElementById("1.2").required = true;
+                        document.getElementById("1.3").required = true;
+                        document.getElementById("1.4").required = true;
+
+
+
+                        document.getElementById('5').style.display = 'none';
+                        document.getElementById('6').style.display = 'none';
+                        document.getElementById('7').style.display = 'none';
+
+                        document.getElementById('8').style.display = 'none';
+
+
+                        
+                        
+                        
+                   
+                }
+            function gentype2() {
+                    
+                        document.getElementById('1').style.display = 'none';
+                        document.getElementById('2').style.display = 'none';
+                        document.getElementById('3').style.display = 'none';
+                        document.getElementById('4').style.display = 'none';
+
+                        document.getElementById('5').style.display = 'block';
+                        document.getElementById('6').style.display ='block';
+                        document.getElementById('7').style.display = 'block';
+
+                        
+                        
+                        document.getElementById('8').style.display = 'none';
+
+
+                        document.getElementById("1.5").required = true;
+                        document.getElementById("1.6").required = true;
+                        document.getElementById("1.7").required = true;
+
+                        document.getElementById("1.1").required = false;
+                        document.getElementById("1.2").required = false;
+                        document.getElementById("1.3").required = false;
+                        document.getElementById("1.4").required = false;
+
+                        
+                        
+               
+            }
+            function gentype3() {
+                    
+                        document.getElementById('1').style.display = 'none';
+                        document.getElementById('2').style.display = 'none';
+                        document.getElementById('3').style.display = 'none';
+                        document.getElementById('4').style.display = 'none';
+
+                        document.getElementById('5').style.display = 'none';
+                        document.getElementById('6').style.display = 'block';
+                        document.getElementById('7').style.display = 'block';
+                        
+                        document.getElementById('8').style.display = 'block';
+
+                        document.getElementById("1.6").required = true;
+                        document.getElementById("1.7").required = true;
+                        document.getElementById("1.8").required = true;
+
+                        document.getElementById("1.1").required = false;
+                        document.getElementById("1.2").required = false;
+                        document.getElementById("1.3").required = false;
+                        document.getElementById("1.4").required = false;
+                       
+               
+            }
+
+            
+
+
+
+            
+        </script>
+        <script>
+            
+            
+            if($('.r1checked').is(':checked')) {
+
+                        document.getElementById('1').style.display = 'block';
+                        document.getElementById('2').style.display = 'block';
+                        document.getElementById('3').style.display = 'block';
+                        document.getElementById('4').style.display = 'block';
+
+                        document.getElementById("1.1").required = true;
+                        document.getElementById("1.2").required = true;
+                        document.getElementById("1.3").required = true;
+                        document.getElementById("1.4").required = true;
+
+
+
+                        document.getElementById('5').style.display = 'none';
+                        document.getElementById('6').style.display = 'none';
+                        document.getElementById('7').style.display = 'none';
+
+                        document.getElementById('8').style.display = 'none';
+                 
+                }
+            if($('.r2checked').is(':checked')) {
+
+                        document.getElementById('1').style.display = 'none';
+                        document.getElementById('2').style.display = 'none';
+                        document.getElementById('3').style.display = 'none';
+                        document.getElementById('4').style.display = 'none';
+
+                        document.getElementById('5').style.display = 'block';
+                        document.getElementById('6').style.display ='block';
+                        document.getElementById('7').style.display = 'block';
+
+                        
+                        
+                        document.getElementById('8').style.display = 'none';
+
+
+                        document.getElementById("1.5").required = true;
+                        document.getElementById("1.6").required = true;
+                        document.getElementById("1.7").required = true;
+
+                        document.getElementById("1.1").required = false;
+                        document.getElementById("1.2").required = false;
+                        document.getElementById("1.3").required = false;
+                        document.getElementById("1.4").required = false;
+                 
+                }    
+            if($('.r3checked').is(':checked')) {
+
+                        document.getElementById('1').style.display = 'none';
+                        document.getElementById('2').style.display = 'none';
+                        document.getElementById('3').style.display = 'none';
+                        document.getElementById('4').style.display = 'none';
+
+                        document.getElementById('5').style.display = 'none';
+                        document.getElementById('6').style.display = 'block';
+                        document.getElementById('7').style.display = 'block';
+                        
+                        document.getElementById('8').style.display = 'block';
+
+                        document.getElementById("1.6").required = true;
+                        document.getElementById("1.7").required = true;
+                        document.getElementById("1.8").required = true;
+
+                        document.getElementById("1.1").required = false;
+                        document.getElementById("1.2").required = false;
+                        document.getElementById("1.3").required = false;
+                        document.getElementById("1.4").required = false;
+                 
+                }
+        </script>
+<script>
+    function showToast() {
+    var toast = document.getElementById("toast");
+    toast.classList.add("show");
+    setTimeout(function() {
+    toast.classList.remove("show");
+    }, 5000);
+
+  
+}
+
+function showToast2() {
+    var toast = document.getElementById("toast1");
+    toast.classList.add("show1");
+    setTimeout(function() {
+    toast.classList.remove("show1");
+    }, 5000);
+
+  
+}
+
+function showToast3() {
+    var toast = document.getElementById("toast2");
+    toast.classList.add("show2");
+    setTimeout(function() {
+    toast.classList.remove("show2");
+    }, 5000);
+
+  
+}
+
+function showToast4() {
+    var toast = document.getElementById("toast3");
+    toast.classList.add("show3");
+    setTimeout(function() {
+    toast.classList.remove("show3");
+    }, 5000);
+
+  
+}
+
+function showToast5() {
+    var toast = document.getElementById("toast4");
+    toast.classList.add("show4");
+    setTimeout(function() {
+    toast.classList.remove("show4");
+    }, 5000);
+
+  
+}
+
+function showToast6() {
+    var toast = document.getElementById("toast5");
+    toast.classList.add("show5");
+    setTimeout(function() {
+    toast.classList.remove("show5");
+    }, 5000);
+
+  
+}
+
+function showToast7() {
+    var toast = document.getElementById("toast6");
+    toast.classList.add("show6");
+    setTimeout(function() {
+    toast.classList.remove("show6");
+    }, 5000);
+
+  
+}
+
+function showToast8() {
+    var toast = document.getElementById("toast7");
+    toast.classList.add("show7");
+    setTimeout(function() {
+    toast.classList.remove("show7");
+    }, 5000);
+
+  
+}
+
+
+
+
+function hidinput1(divId, element) {
+            if (element.value == 'Others' ) {
+                document.getElementById(divId).style.display = 'block';
+                document.getElementById('v1').style.display = 'block';
+                document.getElementById('v2').style.display = 'block';
+                document.getElementById('v3').style.display = 'block';
+                document.getElementById('v4').style.display = 'block';
+                document.getElementById('v5').style.display = 'block';
+
+                document.getElementById('v1').required = true;
+                document.getElementById('v2').required = true;
+                document.getElementById('v3').required = true;
+                document.getElementById('v4').required = true;
+                document.getElementById('v5').required = true;
+
+
+            } else {
+                document.getElementById(divId).style.display = 'none';
+                document.getElementById('v1').style.display = 'none';
+                document.getElementById('v2').style.display = 'none';
+                document.getElementById('v3').style.display = 'none';
+                document.getElementById('v4').style.display = 'none';
+                document.getElementById('v5').style.display = 'none';
+
+                document.getElementById('v1').required = false;
+                document.getElementById('v2').required = false;
+                document.getElementById('v3').required = false;
+                document.getElementById('v4').required = false;
+                document.getElementById('v5').required = false;
+            }
+        }
+function hidinput2(divId, element) {
+    if (element.value == 'Others' ) {
+        document.getElementById(divId).style.display = 'block';
+        
+    } else {
+        document.getElementById(divId).style.display = 'none';
+
+    }
+}
+function hidinput3(divId, element) {
+    if (element.value == 'Fire Engine' ) {
+        document.getElementById(divId).style.display = 'block';
+        document.getElementById('hp').required = true;
+    } else {
+        document.getElementById(divId).style.display = 'none';
+        document.getElementById('hp').required = false;
+    }
+}
+
+</script>
+
+<script>
+    function calculateRatingKVA() {
+      const kwSelect = document.querySelector('.input1.kw');
+      const kwSelect2 = document.querySelector('.input.kw1');
+
+      const kw = kwSelect.value;
+
+      if (kw == 'Others'){
+        const kw = kwSelect2.value;
+        const pfSelect = document.querySelector('.input1.kva');
+        const pf = pfSelect.value;
+        let ratingKVA = kw / pf; 
+        ratingKVA = Math.round(ratingKVA * 10) / 10; // round to 1 decimal place
+        const ratingKVALabel = document.querySelector('.ratingkva');
+        ratingKVALabel.textContent = `Rating in KVA is ${ratingKVA.toFixed(1)}`; // show 1 decimal place
+      }
+      else{
+        const pfSelect = document.querySelector('.input1.kva');
+        const pf = pfSelect.value;
+        let ratingKVA = kw / pf; 
+        ratingKVA = Math.round(ratingKVA * 10) / 10; // round to 1 decimal place
+        const ratingKVALabel = document.querySelector('.ratingkva');
+        ratingKVALabel.textContent = `Rating in KVA is ${ratingKVA.toFixed(1)}`; // show 1 decimal place
+      }
+
+      
+    }
+    
+    // Call the function initially to set the default value
+    calculateRatingKVA();
+    
+    // Add an event listener to the KW select element to recalculate on change
+    const kwSelect = document.querySelector('.input1.kw');
+    kwSelect.addEventListener('change', calculateRatingKVA);
+
+    const kwSelect2 = document.querySelector('.kw1');
+    kwSelect2.addEventListener('change', calculateRatingKVA);
+    
+    // Add an event listener to the power factor select element to recalculate on change
+    const pfSelect = document.querySelector('.input1.kva');
+    pfSelect.addEventListener('change', calculateRatingKVA);
+
+
+
+    $(document).ready(function() {
+      // get references to the select fields
+      var engineMakeSelect = $('#engine_make');
+      var ratingKwSelect = $('#rating_kw');
+    
+      // add event listener to engineMake select field
+      engineMakeSelect.on('change', function() {
+        // get the selected engineMake value
+        var engineMakeValue = engineMakeSelect.val();
+    
+        // make an AJAX request to get the list of kw values for the selected engineMake
+        $.ajax({
+          url: "{% url 'get_rating_kw' %}", // replace with your Django view URL
+          data: {
+            'engine_make': engineMakeValue
+          },
+          dataType: 'json',
+          success: function(data) {
+            // clear existing options
+            ratingKwSelect.empty();
+            console.log(data);
+          
+            
+
+            for(var i=0;i<data.rating_kw_list.length;i++)
+            {
+                $("#rating_kw").append("<option value='" +data.rating_kw_list[i].kw  + "'>" + data.rating_kw_list[i].kw + "</option>");
+            }
+
+            
+        
+          }
+        });
+      });
+    });
+
+    
+    </script>
+    <script>
+        const selectElement = document.getElementById("engine_make");
+        const selectedValue = selectElement.value;
+        
+        
+
+        if (selectedValue == "Others"){
+
+                document.getElementById('hello').style.display = 'block';
+                document.getElementById('v1').style.display = 'block';
+                document.getElementById('v2').style.display = 'block';
+                document.getElementById('v3').style.display = 'block';
+                document.getElementById('v4').style.display = 'block';
+                document.getElementById('v5').style.display = 'block';
+
+                document.getElementById('v1').required = true;
+                document.getElementById('v2').required = true;
+                document.getElementById('v3').required = true;
+                document.getElementById('v4').required = true;
+                document.getElementById('v5').required = true;
+
+        }
+
+        const selectElement1 = document.getElementById("rating_kw");
+        const selectedValue1 = selectElement1.value;
+
+        if (selectedValue1 == "Others"){
+
+            document.getElementById('hello2').style.display = 'block';
+            
+
+}
+    </script>
+    </body>
+
+</html>

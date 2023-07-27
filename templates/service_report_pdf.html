@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% load static %}
+    {% load time_tags %}
+    {% load total_tags %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+   
+</head>
+<body>
+  
+    <style>
+      
+        td{
+            font-size: 14px;
+            text-align: center;
+            
+        }
+        th{
+            font-size: 15px;
+            text-align: center;
+        
+        }
+      
+        .img{
+            margin-left: 600px;
+            width: 110px;
+            margin-top: -200px;
+        }
+        .title{
+            color: rgb(10, 10, 10);
+            font-size: 25px;
+              
+         
+            width: 80%;
+            margin-right: 400px;
+            top: -200px;
+          
+        }
+    </style>
+
+
+
+<div class="container">
+
+
+   
+             <div style="width: 100%;">
+  <div class="img" >
+    {% for i in imgs %}
+    <img src="{{i.icon.path}}">
+    {% endfor %}
+  </div>
+  <div class="title" >
+    Service Details 
+  </div>
+</div>
+           
+          
+   
+
+    
+       
+   
+    
+    <p style="font-size: 18px;">Generator Name : {{genname}}</p>
+
+    <p style="font-size: 16px;">Report in between {{date1}} and {{date2}} </p>
+
+   
+
+                                            
+ 
+                                            
+    <table  class="table" >
+        <thead >
+        <tr>
+          <th class="text-center">DATE</th>
+          <th class="text-center" >TIME</th>
+          <th class="text-center" colspan="3">Operator</th>
+          <th class="text-center" >Description</th>
+          <th class="text-center">Amount</th>
+          
+          
+        </tr>
+    </thead>
+    
+   <tbody>
+    {% for i in Service_Report %}
+    <tr>
+        <td class="text-center">{{i.timestamp |fromunix|date:"d-m-Y "  }}</td>
+        <td class="text-center">{{i.timestamp |fromunix|date:" g:i A"  }}</td>
+        <td class="text-center" colspan="3">{{i.empName}}</td>
+        <td class="text-center">{{i.serviceName}}</td>
+        <td class="text-center">{{i.amount}}</td>
+        
+
+
+    </tr>
+    {% endfor %}
+    <tr>
+        <th colspan="7" style="text-align: right; padding-right: 15px;" >
+            Total Value {{Service_Report|total_value }}
+           </th>
+        </tr>
+   </tbody>
+   
+   
+    </table>
+
+  
+   
+   
+   
+</div>
+
+
+
+
+</body>
+</html>

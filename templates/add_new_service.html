@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+
+    <head>{% load static %}
+        
+        <meta charset="utf-8" >
+        <title>FuelTM  </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" >
+        <meta content="Themesbrand" name="author" >
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'assets/images/logo/logo3.png'  %}">
+
+        <!-- Bootstrap Css -->
+        <link href="{% static 'assets/css/bootstrap.min.css' %}"  rel="stylesheet" type="text/css" >
+        <!-- Icons Css -->
+        <link href="{% static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" >
+        <!-- App Css-->
+        <link href="{% static 'assets/css/app.min.css' %}"  rel="stylesheet" type="text/css" >
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link href="{% static 'assets/css/custom.css' %}"  rel="stylesheet" type="text/css" >
+
+        <link href="{% static 'assets/css/custom1.css' %}"  rel="stylesheet" type="text/css" >
+
+        <link href="{% static 'assets/libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css' %}" rel="stylesheet" type="text/css">
+
+        
+
+
+        
+
+        
+        
+
+    </head>
+
+    <body data-sidebar="dark" data-layout-mode="light">
+
+    <!-- <body data-layout="horizontal" data-topbar="dark"> -->
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+
+            
+            <header id="page-topbar">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box">
+                            <!-- <a href="Home.html" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="{% static 'assets/images/logo.svg' %}" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="{% static 'assets/images/logo-dark.png' %}" alt="" height="17">
+                                </span>
+                            </a> -->
+
+                            <a href="{% url 'Home' %}" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="{% static 'assets/images/logo/logo2.png' %}" alt="" height="26">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="{% static 'assets/images/logo/FuelTM_logo.png' %}" alt="" height="19">
+                                </span>
+                            </a>
+                        </div>
+
+                        <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+
+                     
+                    </div>
+
+                    <div class="d-flex">
+
+                        <div class="dropdown d-inline-block d-lg-none ms-2">
+                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-magnify"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                                aria-labelledby="page-header-search-dropdown">
+        
+                                <form class="p-3">
+                                    <div class="form-group m-0">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        
+
+                        
+
+                        <div class="dropdown d-none d-lg-inline-block ms-1">
+                            <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
+                                <i class="bx bx-fullscreen"></i>
+                            </button>
+                        </div>
+
+                        
+
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="{% static 'assets/images/users/avatar-1.jpg' %}"
+                                    alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{user}}</span>
+                                <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <!-- <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a> -->
+         
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" href="{% url 'Logout' %}"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
+                            </div>
+                        </div>
+
+                       
+
+                    </div>
+                </div>
+            </header>
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
+
+                <div data-simplebar class="h-100">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+                            <!-- <li class="menu-title" key="t-menu">Menu</li> -->
+
+                            
+                            <li>
+                                <a href="{% url 'Home' %}" class="waves-effect">
+                                    <i class="fa fa-home" ></i>
+
+                                    
+
+                                    <span key="t-file-manager">Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                {% if Generator_Access == "0" %}
+
+                                <a onclick="showToast3()" style="cursor: pointer;">
+                                    <i class="fa fa-plus-circle" ></i>
+                                    
+
+                                    <span key="t-file-manager">Add Application</span>
+                                </a>
+                                {% else %}
+                                
+                                <a href="{% url 'Add_Application' %}" class="waves-effect">
+                                    <i class="fa fa-plus-circle" ></i>
+                                    
+
+                                    <span key="t-file-manager">Add Application</span>
+                                </a>
+
+                                {% endif %}
+                            </li>
+
+                            <li>
+                                {% if type == "2" %}
+                                       
+
+                                <a  onclick="showToast()" style="cursor: pointer;" >
+                                    <i class="fa fa-user" ></i>
+
+                                    <span key="t-file-manager">Users</span>
+                                
+                                </a>
+
+                                {% else %}
+                                <a href="{% url 'Users' %}" class="waves-effect">
+                                    <i class="fa fa-user" ></i>
+
+                                    <span key="t-file-manager">Users</span>
+                                </a>
+                                {% endif %}
+
+
+                                
+                            </li>
+
+                             <!-- <li>
+                                <a href="{% url 'Hotspot' %}" class="waves-effect">
+                                    <i class="mdi mdi-monitor" ></i>
+
+                                    <span key="t-file-manager">Hotspot</span>
+                                </a>
+                            </li> -->
+                            <li>
+
+                                {% if type == "2" %}
+                                       
+
+                                <a  onclick="showToast7()" style="cursor: pointer;" >
+                                    <i class="fa fa-bell-o" ></i>
+
+                                    <span key="t-file-manager">Notification Delay</span>
+                                
+                                </a>
+
+                                {% else %}
+                                <a href="{% url 'Notification_Delay' %}" class="waves-effect">
+                                    <i class="fa fa-bell-o" ></i>
+
+                                    <span key="t-file-manager">Notification Delay</span>
+                                </a>
+                                {% endif %}
+
+
+
+
+                                
+
+
+
+                            </li>
+                            <li>
+
+                                {% if Service_Access == "0" %}
+
+                                                <a onclick="showToast2()" style="cursor: pointer;" class="waves-effect">
+                                                   
+                                                   
+                                                        <i class="mdi mdi-tools" ></i>
+                                                       
+                    
+                                                        <span key="t-file-manager"> Service</span>
+                                                </a>
+                                               
+                                {% else %}
+
+                                    {% if generator == 0 %}
+                                            <a onclick="showToast8()" class="waves-effect">
+                                                        
+                                                <i class="mdi mdi-tools" ></i>
+                                            
+            
+                                                <span key="t-file-manager"> Service</span>
+                                            </a>
+
+
+                                    {% else  %}
+                                                 
+                                                 
+                                                <a href="{% url 'Service' %}" class="waves-effect">
+                                                   
+                                                        <i class="mdi mdi-tools" ></i>
+                                                       
+                    
+                                                        <span key="t-file-manager"> Service</span>
+                                                </a>
+                                    {% endif %}           
+                                {% endif %}
+
+                                
+                            </li>
+                            <li>
+                             {% if Purchase_Access == "0" %}
+
+                                            <a onclick="showToast2()" style="cursor: pointer;" class="waves-effect">
+
+                                                
+                                                    <i class="fa fa-credit-card" ></i>
+
+                                                    <span key="t-file-manager">Purchase</span><!--end card-->
+                                            </a> 
+                            {% else %}
+                                {% if generator == 0 %}
+                                    <a onclick="showToast8()" class="waves-effect">
+                                                
+                                        <i class="fa fa-credit-card" ></i>
+
+                                        <span key="t-file-manager">Purchase</span><!--end card-->
+                                    </a>
+
+
+                                {% else  %}
+
+                                                <a href="{% url 'Purchase' %}" class="waves-effect">
+                                                    <i class="fa fa-credit-card" ></i>
+
+                                                    <span key="t-file-manager">Purchase</span><!--end card-->
+                                            </a>
+                                {% endif %}          
+                            {% endif %}
+
+
+
+
+
+                                
+                            </li>
+                            <li>
+                                <a onclick="showToast5()" class="waves-effect" style="cursor: pointer;">
+                                    <i class="mdi mdi-security" ></i>
+
+                                    <span key="t-file-manager">Warranty Section</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="showToast6()" class="waves-effect" style="cursor: pointer;">
+                                    <i class="mdi mdi-toolbox" ></i>
+
+                                    <span key="t-file-manager">AMC Section</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'Logout' %}" class="waves-effect">
+                                    <i class="fa fa-sign-out" ></i>
+
+                                    <span key="t-file-manager">Logout</span>
+                                </a>
+                            </li>
+
+                            
+
+
+                        </ul>
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+            
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            
+                            <div class="col-xl-12">
+                                
+                                <!-- end row -->
+
+                                <div class="card">
+                                    <div class="card-body" >
+                                       
+                                      <h4>ADD SERVICE DETAILS</h4>
+
+                                      
+
+
+                                      
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            
+                            <div class="col-xl-12">
+                                
+                                <!-- end row -->
+
+                                <div class="card">
+                                    <div class="card-body">
+
+                                       
+                                        
+
+                                        <form action="{% url 'Add_New_Service' %}" method="POST" >{% csrf_token %}
+
+                                        
+                                            
+                                               
+                                            
+
+                                            <div class="form-group mt-5">
+                                                <input type="text"  class="form-control input" name="service" required>
+                                                <label class="form-control-placeholder" for="name" >Description</label>
+                                            </div>
+
+                                            <div class="form-group mt-5">
+                                                <input type="number"  class="form-control input" name="Amount" required>
+                                                <label class="form-control-placeholder" for="name" >Amount</label>
+                                            </div>
+                                            
+    
+    
+                                            <div class="form-group mt-5 sub4">
+                                                <button class="btn btn-info form-control  " type="submit"  >OK</button>
+                                            </div>
+                    
+                                            
+                                        </form>
+                                        
+                                    
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                       
+                        
+
+                    
+
+                    
+
+
+                        
+                        <!-- end row -->
+                    </div>
+                    <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+                
+               
+                  
+                <div id="toast" class="toast" style="text-align: center;">Only admin can add a operator</div>
+
+                <div id="toast1" class="toast1" style="text-align: center;">This provision is loked.Please contact admin to unlock it.</div>
+
+                <div id="toast2" class="toast2" style="text-align: center;">You can't add generator</div>
+
+                <div id="toast3" class="toast3" style="text-align: center;">Opening Shortly</div>
+
+                <div id="toast4" class="toast4" style="text-align: center;">Warrenty section will unlok soon</div>
+
+                <div id="toast5" class="toast5" style="text-align: center;">AMC section will unlok soon</div>
+
+                <div id="toast6" class="toast6" style="text-align: center;">Only admin can use this feature</div>
+
+                <div id="toast7" class="toast7" style="text-align: center;">Please add or choose generator</div>
+
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <script>document.write(new Date().getFullYear())</script> © FuelTM.
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-end d-none d-sm-block">
+                                    Design & Develop by Cabal Technologies LLP
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+        <!-- Right Sidebar -->
+        <div class="right-bar">
+            <div data-simplebar class="h-100">
+                
+
+                
+
+                <div class="p-4">
+                    
+
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
+                        <label class="form-check-label" for="light-mode-switch">Light Mode</label>
+                    </div>
+    
+                   
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch">
+                        <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
+                    </div>
+    
+                   
+
+                    
+
+            
+                </div>
+
+            </div> <!-- end slimscroll-menu-->
+        </div>
+        <!-- /Right-bar -->
+
+        <!-- Right bar overlay-->
+        <div class="rightbar-overlay"></div>
+
+        <!-- JAVASCRIPT -->
+        <script src="{% static 'assets/libs/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'assets/libs/metismenu/metisMenu.min.js' %}"></script>
+        <script src="{% static 'assets/libs/simplebar/simplebar.min.js' %}"></script>
+        <script src="{% static 'assets/libs/node-waves/waves.min.js' %}"></script>
+
+        <!-- apexcharts -->
+        <script src="{% static 'assets/libs/apexcharts/apexcharts.min.js' %}"></script>
+
+        <script src="{% static 'assets/js/pages/apexcharts.init.js' %}"></script>
+
+        <!-- dashboard init -->
+        <script src="{% static 'assets/js/pages/dashboard.init.js' %}"></script>
+        
+        <script src="{% static 'assets/libs/jquery-knob/jquery.knob.min.js' %}"></script> 
+
+        <script src="{% static 'assets/js/pages/jquery-knob.init.js' %}"></script> 
+
+        <!-- App js -->
+        <script src="{% static 'assets/js/app.js' %}"></script>
+
+
+
+         <!-- JAVASCRIPT -->
+   
+         <script src="{% static 'assets/libs/select2/js/select2.min.js' %}"></script>
+         <script src="{% static 'assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>
+         <script src="{% static 'assets/libs/spectrum-colorpicker2/spectrum.min.js' %}"></script>
+         <script src="{% static 'assets/libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js' %}"></script>
+        
+ 
+         <!-- form advanced init -->
+         <script src="{% static 'assets/js/pages/form-advanced.init.js' %}"></script>
+ 
+         <script>
+            function showToast() {
+            var toast = document.getElementById("toast");
+            toast.classList.add("show");
+            setTimeout(function() {
+            toast.classList.remove("show");
+            }, 5000);
+        
+          
+        }
+        
+        function showToast2() {
+            var toast = document.getElementById("toast1");
+            toast.classList.add("show1");
+            setTimeout(function() {
+            toast.classList.remove("show1");
+            }, 5000);
+        
+          
+        }
+        
+        function showToast3() {
+            var toast = document.getElementById("toast2");
+            toast.classList.add("show2");
+            setTimeout(function() {
+            toast.classList.remove("show2");
+            }, 5000);
+        
+          
+        }
+        
+        function showToast4() {
+            var toast = document.getElementById("toast3");
+            toast.classList.add("show3");
+            setTimeout(function() {
+            toast.classList.remove("show3");
+            }, 5000);
+        
+          
+        }
+        
+        function showToast5() {
+            var toast = document.getElementById("toast4");
+            toast.classList.add("show4");
+            setTimeout(function() {
+            toast.classList.remove("show4");
+            }, 5000);
+        
+          
+        }
+        
+        function showToast6() {
+            var toast = document.getElementById("toast5");
+            toast.classList.add("show5");
+            setTimeout(function() {
+            toast.classList.remove("show5");
+            }, 5000);
+        
+          
+        }
+        
+        function showToast7() {
+            var toast = document.getElementById("toast6");
+            toast.classList.add("show6");
+            setTimeout(function() {
+            toast.classList.remove("show6");
+            }, 5000);
+        
+          
+        }
+        
+        function showToast8() {
+            var toast = document.getElementById("toast7");
+            toast.classList.add("show7");
+            setTimeout(function() {
+            toast.classList.remove("show7");
+            }, 5000);
+        
+          
+        }
+        
+        </script>
+    </body>
+
+</html>
